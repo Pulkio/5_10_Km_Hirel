@@ -1,22 +1,28 @@
 /* Importe Tailwind CSS */
 @import 'tailwindcss';
 
+/* Importe les polices depuis Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 /* Définition des couleurs personnalisées en utilisant les variables CSS */
 :root {
-  --color-jaune: #fabd1d;
-  --color-bleu: #5eacd0;
-  --color-vert: #98c240;
+  --color-bleu: #2a3f54;
+  --color-jaune: #ffd166;
+  --color-vert: #06d6a0;
+  --color-gris-clair: #f8f9fa;
+  --color-gris-fonce: #343a40;
+  --color-blanc: #ffffff;
+  --color-noir: #000000;
 }
 
 /* Styles de base pour l'application */
 body {
   margin: 0;
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: var(--color-gris-fonce);
+  background-color: var(--color-gris-clair);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -24,55 +30,57 @@ body {
   min-width: 320px;
   min-height: 100vh;
   display: flex;
-  place-items: center;
+  flex-direction: column;
 }
 
 /* Styles pour les liens */
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: var(--color-bleu);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--color-vert);
 }
 
 /* Styles pour les titres */
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
+  color: inherit;
 }
 
-/* Styles pour les boutons */
-button {
+/* Styles pour les cartes personnalisées */
+.card-custom {
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+  border: 1px solid var(--color-gris-fonce);
+  padding: 1.5rem;
+  background-color: var(--color-blanc);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.card-custom:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Styles pour le mode clair */
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* Animations personnalisées */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Classes utilitaires pour vos couleurs personnalisées */
+.text-color-bleu { color: var(--color-bleu); }
+.text-color-vert { color: var(--color-vert); }
+.text-color-jaune { color: var(--color-jaune); }
+.bg-color-bleu { background-color: var(--color-bleu); }
+.bg-color-vert { background-color: var(--color-vert); }
+.bg-color-jaune { background-color: var(--color-jaune); }

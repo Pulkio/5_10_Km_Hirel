@@ -40,14 +40,6 @@ const Header = () => {
             </li>
             <li>
               <a
-                href="#inscriptions"
-                className="px-5 py-1.5 rounded-full bg-[color:var(--color-jaune)] text-[color:var(--color-bleu)] text-base font-bold shadow-md hover:bg-[color:var(--color-vert)] hover:text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[color:var(--color-vert)]"
-              >
-                Inscriptions
-              </a>
-            </li>
-            <li>
-              <a
                 href="#infos"
                 className="px-5 py-1.5 rounded-full bg-[color:var(--color-jaune)] text-[color:var(--color-bleu)] text-base font-bold shadow-md hover:bg-[color:var(--color-vert)] hover:text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[color:var(--color-vert)]"
               >

@@ -77,6 +77,8 @@ h1, h2, h3, h4, h5, h6 {
   animation: fadeIn 0.5s ease-in-out;
 }
 
+
+
 /* Classes utilitaires pour vos couleurs personnalisées */
 .text-color-bleu { color: var(--color-bleu); }
 .text-color-vert { color: var(--color-vert); }

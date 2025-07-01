@@ -1,310 +1,440 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import VideoCarousel from './assets/components/VideoCarousel';
+import VideoCard from './assets/components/VideoCard';
+import VideoPlayer from './assets/components/VideoPlayer';
 
+/**
+ * Page d'accueil du 5&10km d'Hirel.
+ * Affiche l'affiche officielle, les informations de l'événement et la galerie vidéo.
+ * @returns {JSX.Element} - Page d'accueil complète
+ */
 const Accueil = () => {
-  // Configuration des vidéos
+  const [showVideoModal, setShowVideoModal] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState(null);
+
+  // Données des vidéos de l'événement
   const videos = [
     {
       id: 1,
-      mp4Source: "/videos/video1.mp4",
-      poster: "/images/video1-poster.jpg",
-      title: "Course 5km - Édition 2024"
+      title: "5km d'Hirel - Départ matinal",
+      description: "Le départ énergique du 5km à 9h pétante ! Ambiance électrique et motivante pour bien commencer la matinée.",
+      mp4Source: "videos/video1.mp4",
+      webmSource: "videos/video1.webm",
+      poster: "images/video1-poster.jpg",
+      category: "Départ",
+      date: "3 août 2025",
+      duration: "2:30"
     },
     {
       id: 2,
-      mp4Source: "/videos/video2.mp4",
-      poster: "/images/video2-poster.jpg",
-      title: "Course 10km - Highlights"
+      title: "10km d'Hirel - Parcours champêtre",
+      description: "Découvrez le magnifique parcours plat à travers la campagne hireloise. Un cadre authentique entre champs et nature !",
+      mp4Source: "videos/video2.mp4",
+      webmSource: "videos/video2.webm",
+      poster: "images/video2-poster.jpg",
+      category: "Parcours",
+      date: "3 août 2025",
+      duration: "4:15"
     },
     {
       id: 3,
-      mp4Source: "/videos/video3.mp4",
-      poster: "/images/video3-poster.jpg",
-      title: "Ambiance générale"
+      title: "Ambiance et arrivée - 5&10km d'Hirel",
+      description: "L'ambiance conviviale de l'arrivée, les sourires (parfois crispés !) et la joie des coureurs ayant relevé le défi !",
+      mp4Source: "videos/video3.mp4",
+      webmSource: "videos/video3.webm",
+      poster: "images/video3-poster.jpg",
+      category: "Arrivée",
+      date: "3 août 2025",
+      duration: "3:45"
+    },
+    {
+      id: 4,
+      title: "Préparation et échauffement",
+      description: "Les derniers préparatifs avant le grand jour ! Conseils d'échauffement et ambiance décontractée.",
+      mp4Source: "videos/video4.mp4",
+      webmSource: "videos/video4.webm",
+      poster: "images/video4-poster.jpg",
+      category: "Préparation",
+      date: "3 août 2025",
+      duration: "1:50"
+    },
+    {
+      id: 5,
+      title: "Paysages de la Baie du Mont Saint-Michel",
+      description: "Découvrez les magnifiques paysages qui entourent le parcours, avec la Baie du Mont Saint-Michel en toile de fond.",
+      mp4Source: "videos/video5.mp4",
+      webmSource: "videos/video5.webm",
+      poster: "images/video5-poster.jpg",
+      category: "Paysages",
+      date: "3 août 2025",
+      duration: "3:20"
+    },
+    {
+      id: 6,
+      title: "Témoignages des participants",
+      description: "Les coureurs partagent leurs impressions sur cette première édition du 5&10km d'Hirel. Que du bonheur !",
+      mp4Source: "videos/video6.mp4",
+      webmSource: "videos/video6.webm",
+      poster: "images/video6-poster.jpg",
+      category: "Témoignages",
+      date: "3 août 2025",
+      duration: "2:10"
     }
   ];
 
+  /**
+   * Gère l'ouverture de la modal vidéo
+   */
+  const handleVideoPlay = (video) => {
+    setSelectedVideo(video);
+    setShowVideoModal(true);
+    document.body.style.overflow = 'hidden'; // Empêche le scroll
+  };
+
+  /**
+   * Gère la fermeture de la modal vidéo
+   */
+  const handleCloseModal = () => {
+    setShowVideoModal(false);
+    setSelectedVideo(null);
+    document.body.style.overflow = 'unset'; // Réactive le scroll
+  };
+
+  /**
+   * Ferme la modal avec la touche Échap
+   */
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape' && showVideoModal) {
+        handleCloseModal();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [showVideoModal]);
+
   return (
-    <main className="flex-grow pt-24 pb-8 font-sans text-lg">
-      {/* Container plus large sur grands écrans */}
-      <div className="max-w-8xl mx-auto px-4 xl:px-12 2xl:px-16">
+    <>
+      <main className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
         
-        {/* SECTION 1 : Texte + Affiche - Layout optimisé pour grands écrans */}
-        <div className="flex flex-col xl:flex-row gap-8 lg:gap-12 mb-12">
-          
-          {/* BLOC TEXTE - Plus d'espace sur grands écrans - AVEC EFFET HOVER */}
-          <div className="xl:w-2/3 2xl:w-3/4">
-            <div className="bg-white bg-opacity-95 rounded-xl shadow-lg hover:shadow-2xl hover:bg-opacity-100 transition-all duration-300 p-6 lg:p-8 xl:p-10 group">
+        {/* Section Hero avec l'affiche */}
+        <section className="relative py-20 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-[color:var(--color-bleu)]/5 to-[color:var(--color-vert)]/5"></div>
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-6xl mx-auto">
               
-              {/* 🏆 BADGE PREMIÈRE ÉDITION - Intégré naturellement */}
-              <div className="flex items-center justify-between mb-6 xl:mb-8 pb-4 border-b border-gray-200 group-hover:border-gray-300 transition-colors">
-                <div className="flex items-center space-x-3">
-                  {/* Badge élégant */}
-                  <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 xl:px-6 xl:py-3 rounded-full shadow-lg hover:scale-105 transition-transform group-hover:from-blue-700 group-hover:to-indigo-700">
-                    <span className="text-lg font-semibold tracking-wide">
-                      🏆 PREMIÈRE ÉDITION
-                    </span>
-                  </div>
-                  {/* Texte d'accompagnement */}
-                  <div className="hidden sm:block">
-                    <p className="text-lg text-gray-600 font-medium group-hover:text-gray-700 transition-colors">
-                      Vous êtes les pionniers !
-                    </p>
-                  </div>
-                </div>
-                
-                {/* Date mise en avant */}
-                <div className="text-right">
-                  <div className="text-2xl xl:text-3xl font-bold text-blue-600 group-hover:text-blue-700 transition-colors">
-                    3 AOÛT
-                  </div>
-                  <div className="text-lg text-gray-500 font-medium">
-                    2025
-                  </div>
-                </div>
+              {/* Badge "Première édition" */}
+              <div className="text-center mb-8">
+                <span className="inline-flex items-center px-6 py-3 rounded-full text-sm font-semibold bg-gradient-to-r from-[color:var(--color-jaune)] to-[color:var(--color-jaune)]/80 text-[color:var(--color-gris-fonce)] shadow-lg animate-bounce-in">
+                  ✨ PREMIÈRE ÉDITION ✨
+                </span>
               </div>
-              
-              {/* Titre principal - VERSION SIMPLIFIÉE ET CLEAN */}
-              <h1 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-gray-800 group-hover:text-gray-900 transition-colors mb-6 xl:mb-8 leading-tight">
-                <span className="block mb-2">
-                  Hirel vous attend pour une matinée de course à pied mémorable
-                </span>
-                <span className="block text-base lg:text-lg xl:text-xl font-normal text-green-600 group-hover:text-green-700 transition-colors mt-2">
-                  (et sans trop de souffrance en montée 😉) ✨
-                </span>
+
+              {/* Titre principal */}
+              <h1 className="text-4xl md:text-6xl font-bold text-center mb-8 gradient-text animate-fade-in">
+                5&10km d'Hirel
               </h1>
               
-              {/* Message spécial première édition */}
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 group-hover:from-blue-100 group-hover:to-indigo-100 border-l-4 border-blue-500 p-4 xl:p-6 mb-6 xl:mb-8 rounded-r-lg transition-all duration-300">
-                <div className="flex items-start space-x-3">
-                  <div className="text-2xl">📍</div>
-                  <div>
-                    <h3 className="text-lg xl:text-xl font-bold text-blue-800 mb-2">
-                      Une histoire qui commence
-                    </h3>
-                    <p className="text-blue-700 text-lg leading-relaxed text-justify">
-                      Vous avez la chance unique de participer à la toute première édition des courses d'Hirel. 
-                      Dans quelques années, vous pourrez dire : <em>"J'y étais dès le début !"</em>
-                    </p>
+              <p className="text-xl md:text-2xl text-center text-gray-700 mb-12 animate-fade-in delay-200">
+                Parcours plat, Fun & Soleil près de la Baie ! ☀️🌾
+              </p>
+
+              {/* Conteneur principal avec affiche et infos */}
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                
+                {/* Affiche officielle */}
+                <div className="order-2 lg:order-1 animate-slide-in-left delay-300">
+                  <div className="relative group">
+                    <div className="absolute -inset-4 bg-gradient-to-r from-[color:var(--color-bleu)]/20 to-[color:var(--color-vert)]/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <img 
+                      src="images/Affiche.png" 
+                      alt="Affiche officielle du 5&10km d'Hirel - Première édition"
+                      className="relative w-full max-w-md mx-auto rounded-2xl shadow-2xl transform transition-all duration-500 hover:scale-105 hover:rotate-1"
+                    />
                   </div>
                 </div>
-              </div>
-              
-              {/* Contenu principal avec le vrai texte - TEXTE HARMONISÉ */}
-              <div className="space-y-4 xl:space-y-6 text-lg text-gray-700 group-hover:text-gray-800 transition-colors leading-relaxed text-justify">
-                
-                {/* Paragraphe d'introduction */}
-                <p>
-                  <strong>Imaginez le tableau :</strong> Un soleil radieux ☀️ <em>(On a passé commande !)</em>, 
-                  l'air vivifiant de la <strong>Baie du Mont Saint-Michel</strong> 🌊 juste à côté, 
-                  et vous, en train de fouler le bitume d'<strong>Hirel</strong> dans une ambiance 
-                  <span className="text-green-600 font-semibold group-hover:text-green-700 transition-colors"> conviviale et détendue</span>. 
-                  Ça vous tente ?
-                </p>
 
-                {/* Ce qui vous attend */}
-                <div className="bg-green-50 group-hover:bg-green-100 transition-colors p-4 xl:p-6 rounded-lg border-l-4 border-green-400">
-                  <h3 className="font-bold text-green-800 text-xl xl:text-2xl mb-3">
-                    🏃‍♂️ Ce qui vous attend :
-                  </h3>
-                  <ul className="space-y-2 text-green-700 text-lg">
-                    <li className="flex items-start">
-                      <span className="mr-3 text-green-500">✓</span>
-                      Des parcours <strong>adaptés à tous les niveaux</strong> (5km et 10km)
-                    </li>
-                    <li className="flex items-start">
-                      <span className="mr-3 text-green-500">✓</span>
-                      Un <strong>ravitaillement digne de ce nom</strong> à l'arrivée
-                    </li>
-                    <li className="flex items-start">
-                      <span className="mr-3 text-green-500">✓</span>
-                      Des <strong>récompenses</strong> pour tous les participants
-                    </li>
-                    <li className="flex items-start">
-                      <span className="mr-3 text-green-500">✓</span>
-                      Une <strong>ambiance familiale</strong> garantie sans prise de tête
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Nouveaux paragraphes */}
-                <p>
-                  Que vous soyez un <strong>coureur aguerri</strong> en quête de performance 
-                  ou quelqu'un qui veut simplement <em>se faire plaisir</em> en découvrant 
-                  de nouveaux horizons, nos parcours sauront vous séduire. 
-                  Le <strong>5km</strong> ? Parfait pour une première approche ou une sortie en famille. 
-                  Le <strong>10km</strong> ? Idéal pour se challenger tout en profitant du paysage !
-                </p>
-
-                <p>
-                  Et puis, il y a cette <span className="text-blue-600 font-semibold group-hover:text-blue-700 transition-colors">magie particulière</span> 
-                  des petits événements sportifs : on se connaît tous, on s'encourage, 
-                  on partage un café après l'effort... Bref, exactement ce qu'il faut 
-                  pour <strong>commencer la journée du bon pied</strong> ! 😊
-                </p>
-              </div>
-
-              {/* 🚀 NOUVEAU : APPEL À L'ACTION INSCRIPTION - BOUTON AMÉLIORÉ */}
-              <div className="mt-8 xl:mt-12 pt-6 xl:pt-8 border-t border-gray-200 group-hover:border-gray-300 transition-colors">
-                <div className="bg-gradient-to-r from-slate-50 to-gray-50 group-hover:from-slate-100 group-hover:to-gray-100 border border-slate-200 group-hover:border-slate-300 rounded-2xl p-8 xl:p-10 transition-all duration-300">
+                {/* Informations clés */}
+                <div className="order-1 lg:order-2 space-y-8 animate-slide-in-right delay-500">
                   
-                  {/* Titre élégant centré */}
-                  <div className="text-center mb-6">
-                    <div className="inline-flex items-center space-x-3 mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center">
-                        <span className="text-2xl">🏃‍♂️</span>
+                  {/* Date importante */}
+                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20">
+                    <h2 className="text-2xl font-bold text-[color:var(--color-bleu)] mb-4 flex items-center">
+                      🗓️ Date à retenir !
+                    </h2>
+                    <p className="text-xl font-semibold text-gray-800">
+                      <span className="text-3xl text-[color:var(--color-jaune)]">Dimanche 3 août 2025</span>
+                    </p>
+                    <p className="text-gray-600 mt-2">
+                      Hirel vous attend pour une matinée de course à pied mémorable (et sans trop de souffrance en montée 😉) ! ✨
+                    </p>
+                  </div>
+
+                  {/* Horaires */}
+                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20">
+                    <h3 className="text-xl font-bold text-[color:var(--color-bleu)] mb-4">
+                      ⏰ Programme de la matinée
+                    </h3>
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between p-3 bg-gradient-to-r from-[color:var(--color-vert)]/10 to-transparent rounded-lg">
+                        <span className="font-semibold">🏃🏻 5km</span>
+                        <span className="text-2xl font-bold text-[color:var(--color-vert)]">9h00</span>
                       </div>
-                      <div className="text-left">
-                        <h3 className="font-bold text-gray-800 text-lg">
-                          Rejoignez l'aventure
-                        </h3>
-                        <p className="font-medium text-blue-600 text-lg">
-                          Places disponibles sur NextRun
-                        </p>
+                      <div className="flex items-center justify-between p-3 bg-gradient-to-r from-[color:var(--color-bleu)]/10 to-transparent rounded-lg">
+                        <span className="font-semibold">🏃🏻‍♂️ 10km</span>
+                        <span className="text-2xl font-bold text-[color:var(--color-bleu)]">10h00</span>
                       </div>
                     </div>
                   </div>
-                  
-                  {/* Message centré et sobre - TEXTE HARMONISÉ */}
-                  <p className="text-gray-600 mb-8 leading-relaxed text-center max-w-2xl mx-auto text-lg">
-                    Profitez des tarifs préférentiels pour les inscriptions anticipées. 
-                    Une première édition historique vous attend !
-                  </p>
-                  
-                  {/* Bouton moderne et élégant - NOUVELLE COULEUR ET PLUS LISIBLE */}
+
+                  {/* Bouton d'inscription */}
                   <div className="text-center">
-                    <a 
-                      href="https://www.nextrun.fr/course/inscriptions-avis/sport/4554/5-10-km-d-hirel/2025" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-gray-900 hover:text-gray-900 font-black py-5 px-10 xl:py-6 xl:px-14 rounded-full text-xl xl:text-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 group/btn border-2 border-yellow-500 hover:border-yellow-400"
-                    >
-                      <span className="mr-3 !text-gray-900">Je m'inscris !</span>
-                      <span className="text-2xl group-hover/btn:translate-x-2 transition-transform duration-300">🎯</span>
-                    </a>
+                    <button className="btn-primary text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                      🏃‍♂️ Je m'inscris maintenant !
+                    </button>
                   </div>
-                  
-                  {/* Info discrète - TEXTE HARMONISÉ */}
-                  <div className="mt-6 text-center text-lg text-gray-500">
-                    <span className="inline-flex items-center space-x-2">
-                      <span>⚡</span>
-                      <span>Inscription sécurisée en quelques clics</span>
-                    </span>
-                  </div>
+
                 </div>
               </div>
             </div>
           </div>
-          
-          {/* AFFICHE - Taille adaptée - AVEC EFFET HOVER AMÉLIORÉ */}
-          <div className="xl:w-1/3 2xl:w-1/4 flex justify-center xl:justify-end">
-            <div className="w-full max-w-md xl:max-w-none group/affiche">
-              <div className="relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 group-hover/affiche:-translate-y-1 group-hover/affiche:translate-x-1">
-                {/* Overlay subtil au hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover/affiche:opacity-100 transition-opacity duration-300 z-10"></div>
+        </section>
+
+        {/* Section Description détaillée */}
+        <section className="py-20 bg-white/50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-5xl mx-auto">
+              
+              <div className="prose prose-lg mx-auto text-gray-700 leading-relaxed space-y-8">
                 
-                {/* Image sans zoom */}
-                <img 
-                  src="/images/Affiche.png" 
-                  alt="Affiche Course Hirel 2025" 
-                  className="w-full h-auto transition-transform duration-700 ease-out"
+                {/* Introduction */}
+                <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-2xl p-8 animate-fade-in">
+                  <p className="text-xl leading-relaxed">
+                    <strong>Imaginez le tableau :</strong> Un soleil radieux ☀️ (On a passé commande !), l'air vivifiant de la Baie du Mont Saint-Michel 🌊 juste à côté pour l'ambiance marine, et vous, filant comme le vent (ou presque !) au cœur de la campagne hireloise verdoyante 🌳, entre les champs. Un cadre authentique en Ille-et-Vilaine pour une expérience qui change !
+                  </p>
+                </div>
+
+                {/* Argument choc - Parcours plat */}
+                <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-8 animate-fade-in delay-200">
+                  <h3 className="text-2xl font-bold text-[color:var(--color-bleu)] mb-4 flex items-center">
+                    🐟 Le GROS plus de notre événement
+                  </h3>
+                  <p className="text-lg">
+                    Le parcours est <strong>plus plat qu'une limande déshydratée !</strong> 🐟 Non, sérieusement, votre montre GPS va se demander si elle n'a pas un problème. C'est le spot parfait pour claquer un RP et enfin avoir un graphique de dénivelé qui ressemble à une ligne droite. Fini les excuses du genre "ah mais ça montait trop !" 😉
+                  </p>
+                </div>
+
+                {/* Programme détaillé */}
+                <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 animate-fade-in delay-300">
+                  <h3 className="text-2xl font-bold text-[color:var(--color-bleu)] mb-6">
+                    🕰️ Au programme de cette matinée sportive (et légèrement folle)
+                  </h3>
+                  <div className="space-y-4">
+                    <div className="flex items-start space-x-4 p-4 bg-white/60 rounded-xl">
+                      <span className="text-2xl font-bold text-[color:var(--color-vert)] min-w-[60px]">9h</span>
+                      <div>
+                        <strong>Départ du 5km.</strong> Pour ceux qui veulent une injection rapide d'endorphines avant le brunch. 🏃🏻🍃
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-4 p-4 bg-white/60 rounded-xl">
+                      <span className="text-2xl font-bold text-[color:var(--color-bleu)] min-w-[60px]">10h</span>
+                      <div>
+                        <strong>Départ du 10km.</strong> Pour les plus courageux ou ceux qui aiment avoir une excuse pour manger plus au déjeuner. 🏃🏻‍♂️🏃🏻‍♂️🍃
+                      </div>
+                    </div>
+                  </div>
+                  <p className="mt-6 text-lg italic text-center">
+                    Rejoignez notre joyeuse troupe de passionnés 🥳 pour partager la sueur, les sourires (crispés ?) et l'incroyable sensation d'avoir accompli quelque chose avant midi !
+                  </p>
+                </div>
+
+                {/* Pourquoi venir */}
+                <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8 animate-fade-in delay-500">
+                  <h3 className="text-2xl font-bold text-[color:var(--color-bleu)] mb-6">
+                    🎯 Pourquoi vous DEVEZ venir (on insiste un peu)
+                  </h3>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="flex items-start space-x-3 p-4 bg-white/60 rounded-xl">
+                      <span className="text-2xl">☀️</span>
+                      <div>
+                        <strong>Un soleil radieux</strong> commandé spécialement pour l'occasion (on croise les doigts très fort 🤞🏻).
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3 p-4 bg-white/60 rounded-xl">
+                      <span className="text-2xl">💐</span>
+                      <div>
+                        <strong>Un parcours 100% champêtre.</strong> Possibilité d'apercevoir des lapins 🐇 (option non contractuelle).
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3 p-4 bg-white/60 rounded-xl">
+                      <span className="text-2xl">🏃🏻‍♂️</span>
+                      <div>
+                        <strong>Un profil ULTRA PLAT !</strong> (Oui, on insiste, c'est notre argument choc !). Votre cardio vous dira merci... peut-être.
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3 p-4 bg-white/60 rounded-xl">
+                      <span className="text-2xl">🎉</span>
+                      <div>
+                        <strong>Une ambiance électrique et conviviale !</strong> Venez avec votre bonne humeur, on fournit le reste (et peut-être des encouragements bruyants).
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Call to action final */}
+                <div className="bg-gradient-to-r from-[color:var(--color-jaune)]/20 to-[color:var(--color-vert)]/20 rounded-2xl p-8 text-center animate-fade-in delay-700">
+                  <h3 className="text-2xl font-bold text-[color:var(--color-bleu)] mb-4">
+                    🏃‍♀️ Alors, prêt(e) à relever le défi (plat) ?
+                  </h3>
+                  <p className="text-lg mb-6">
+                    Laissez vos excuses au vestiaire, enfilez vos plus belles chaussettes de running (celles avec des motifs rigolos sont encouragées) et ramenez-vous à Hirel le <strong>3 août 2025</strong> ! Promis, vous repartirez avec des souvenirs plein la tête... et peut-être l'envie de revenir l'année prochaine (ou de faire une sieste immédiate 😂).
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button className="btn-primary text-xl px-10 py-4 rounded-xl">
+                      🏃‍♂️ Je m'inscris !
+                    </button>
+                    <p className="text-lg font-semibold text-[color:var(--color-bleu)]">
+                      On vous attend de pied ferme ! 😊👍
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Section Carrousel vidéo */}
+        <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4 animate-fade-in">
+                🎬 Découvrez l'événement en vidéo
+              </h2>
+              <p className="text-xl text-center text-gray-600 mb-12 animate-fade-in delay-200">
+                Plongez dans l'ambiance du 5&10km d'Hirel !
+              </p>
+              
+              <div className="animate-zoom-in delay-300">
+                <VideoCarousel 
+                  videos={videos} 
+                  onVideoClick={handleVideoPlay}
                 />
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* ENCADRÉS INFO + MÉTÉO avec effets hover améliorés - VERSION MODERNE */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 xl:gap-12 mb-12 xl:mb-16">
-          
-          {/* Météo commandée avec hover effect - VERSION SOBRE */}
-          <div className="group bg-white border border-blue-200 hover:border-blue-300 p-6 xl:p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer">
-            <div className="flex items-center space-x-4 mb-4">
-              <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-sky-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <div className="text-2xl xl:text-3xl">🌤️</div>
+        {/* Section Galerie vidéo complète */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
+              <h2 className="text-3xl font-bold text-center text-gray-900 mb-12 animate-fade-in">
+                📹 Toutes les vidéos
+              </h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {videos.map((video, index) => (
+                  <div 
+                    key={video.id}
+                    className={`animate-fade-in delay-${index * 100 + 200}`}
+                  >
+                    <VideoCard
+                      title={video.title}
+                      description={video.description}
+                      mp4Source={video.mp4Source}
+                      webmSource={video.webmSource}
+                      poster={video.poster}
+                      category={video.category}
+                      date={video.date}
+                      duration={video.duration}
+                      onPlay={() => handleVideoPlay(video)}
+                    />
+                  </div>
+                ))}
               </div>
-              <h3 className="font-bold text-gray-800 text-lg">
-                Météo Commandée !
-              </h3>
             </div>
-            <p className="text-gray-600 leading-relaxed text-justify text-lg">
-              Nous avons passé commande spéciale auprès de Météo France : 
-              <strong> soleil garanti</strong>, température idéale, et juste ce qu'il faut 
-              de petite brise marine pour vous rafraîchir pendant l'effort ! 
-              <em>(Ou presque...)</em> 😉
-            </p>
           </div>
+        </section>
 
-          {/* Info express avec hover effect - VERSION SOBRE */}
-          <div className="group bg-white border border-green-200 hover:border-green-300 p-6 xl:p-8 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer">
-            <div className="flex items-center space-x-4 mb-4">
-              <div className="w-14 h-14 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <div className="text-2xl xl:text-3xl">📍</div>
+        {/* Section Newsletter */}
+        <section className="py-20 bg-gradient-to-r from-[color:var(--color-bleu)] to-[color:var(--color-vert)] text-white">
+          <div className="container mx-auto px-4 text-center">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="text-3xl font-bold mb-6 animate-fade-in">
+                📧 Restez informé(e) !
+              </h2>
+              <p className="text-xl mb-8 opacity-90 animate-fade-in delay-200">
+                Inscrivez-vous à notre newsletter pour recevoir toutes les informations sur le 5&10km d'Hirel
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto animate-fade-in delay-300">
+                <input 
+                  type="email" 
+                  placeholder="Votre adresse email"
+                  className="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-[color:var(--color-jaune)]"
+                />
+                <button className="px-6 py-3 bg-[color:var(--color-jaune)] text-[color:var(--color-gris-fonce)] rounded-lg font-semibold hover:bg-[color:var(--color-jaune)]/90 transition-all duration-200">
+                  📧 Rester informé
+                </button>
               </div>
-              <h3 className="font-bold text-gray-800 text-lg">
-                Informations pratiques
-              </h3>
             </div>
-            <p className="text-gray-600 leading-relaxed text-justify text-lg">
-              <strong>Départ à 9h30</strong> précises depuis la place du bourg d'Hirel. 
-              Vestiaires et douches disponibles, parking gratuit. 
-              Remise des dossards dès 8h30 sur place. 
-              <span className="text-green-600 font-semibold">Tout est prévu pour votre confort !</span> 🏃‍♀️
-            </p>
           </div>
-        </div>
+        </section>
+      </main>
 
-        {/* SECTION 2 : Carrousel vidéo */}
-        <div className="mb-16 xl:mb-20">
-          <h2 className="text-2xl lg:text-3xl xl:text-4xl font-bold text-center text-gray-800 mb-8 xl:mb-12">
-            🎥 Revivez l'édition précédente
-          </h2>
-          <p className="text-center text-gray-600 mb-8 xl:mb-12 max-w-3xl mx-auto leading-relaxed text-lg">
-            Découvrez l'ambiance unique de nos courses ! Sourires, dépassement de soi, 
-            et cette satisfaction incomparable d'avoir couru dans un cadre exceptionnel. 
-            Ces images vous donneront encore plus envie de nous rejoindre cette année !
-          </p>
+      {/* Modal de lecture vidéo */}
+      {showVideoModal && selectedVideo && (
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-90 flex items-center justify-center p-4 modal-overlay">
+          {/* Overlay cliquable pour fermer */}
+          <div 
+            className="absolute inset-0" 
+            onClick={handleCloseModal}
+          ></div>
           
-          {/* Carrousel avec plus d'espace sur grands écrans */}
-          <div className="max-w-5xl xl:max-w-6xl 2xl:max-w-7xl mx-auto">
-            <VideoCarousel videos={videos} />
-          </div>
-        </div>
-        
-        {/* SECTION 3 : Stats avec mention première édition */}
-        <div className="mt-16 xl:mt-20 bg-gray-50 rounded-xl p-8 xl:p-12">
-          <div className="text-center mb-8 xl:mb-12">
-            <div className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-2 rounded-full text-lg font-semibold mb-4 hover:scale-105 transition-transform">
-              🏆 PREMIÈRE ÉDITION HISTORIQUE
-            </div>
-            <h3 className="text-2xl xl:text-3xl font-bold text-gray-800">
-              📊 Quelques stats qui donnent le sourire
-            </h3>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 xl:gap-8">
-            {/* Nouvelle stat pour première édition */}
-            <div className="text-center p-6 xl:p-8 bg-gradient-to-br from-yellow-400 to-amber-500 text-white rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105">
-              <div className="text-4xl xl:text-5xl font-bold mb-3">1ère</div>
-              <div className="text-lg font-semibold">Édition historique</div>
-            </div>
-            
-            <div className="text-center p-6 xl:p-8 bg-white rounded-lg shadow hover:shadow-lg transition-shadow">
-              <div className="text-4xl xl:text-5xl font-bold text-blue-600 mb-3">98%</div>
-              <div className="text-gray-600 text-lg">de sourires à l'arrivée</div>
-            </div>
-            <div className="text-center p-6 xl:p-8 bg-white rounded-lg shadow hover:shadow-lg transition-shadow">
-              <div className="text-4xl xl:text-5xl font-bold text-green-600 mb-3">2m</div>
-              <div className="text-gray-600 text-lg">de dénivelé total (on exagère un peu)</div>
-            </div>
-            <div className="text-center p-6 xl:p-8 bg-white rounded-lg shadow hover:shadow-lg transition-shadow">
-              <div className="text-4xl xl:text-5xl font-bold text-purple-600 mb-3">∞</div>
-              <div className="text-gray-600 text-lg">souvenirs mémorables</div>
+          {/* Contenu de la modal */}
+          <div className="relative w-full max-w-5xl bg-black rounded-2xl overflow-hidden shadow-2xl modal-content">
+            {/* Bouton de fermeture */}
+            <button
+              onClick={handleCloseModal}
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-black bg-opacity-50 text-white rounded-full flex items-center justify-center hover:bg-opacity-70 transition-all duration-200 focus-visible"
+              aria-label="Fermer la vidéo"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+
+            {/* Lecteur vidéo */}
+            <VideoPlayer
+              mp4Source={selectedVideo.mp4Source}
+              webmSource={selectedVideo.webmSource}
+              poster={selectedVideo.poster}
+              title={selectedVideo.title}
+              autoplay={true}
+            />
+
+            {/* Informations sur la vidéo */}
+            <div className="p-6 bg-gray-900 text-white">
+              <h3 className="text-xl font-bold mb-2">{selectedVideo.title}</h3>
+              <p className="text-gray-300 text-sm mb-4">{selectedVideo.description}</p>
+              <div className="flex items-center justify-between text-sm text-gray-400">
+                <span className="flex items-center space-x-2">
+                  <span className="px-2 py-1 bg-[color:var(--color-bleu)] text-white rounded text-xs font-semibold">
+                    {selectedVideo.category}
+                  </span>
+                  <span>{selectedVideo.date}</span>
+                </span>
+                <span>{selectedVideo.duration}</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      )}
+    </>
   );
 };
 

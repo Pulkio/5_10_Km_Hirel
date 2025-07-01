@@ -122,191 +122,303 @@ const Accueil = () => {
       <main className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
         
         {/* Section Hero avec l'affiche */}
-        <section className="relative py-20 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-[color:var(--color-bleu)]/5 to-[color:var(--color-vert)]/5"></div>
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="max-w-6xl mx-auto">
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-[color:var(--color-bleu)]/5 to-[color:var(--color-vert)]/5"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-6xl mx-auto">
+            
+            {/* Badge "Première édition" */}
+            <div className="text-center mb-8">
+              <span className="inline-flex items-center px-6 py-3 rounded-full text-sm font-semibold bg-gradient-to-r from-[color:var(--color-jaune)] to-[color:var(--color-jaune)]/80 text-[color:var(--color-gris-fonce)] shadow-lg animate-bounce-in">
+                ✨ PREMIÈRE ÉDITION ✨
+              </span>
+            </div>
+
+            {/* Titre principal SANS dégradé */}
+            <h1 className="text-4xl md:text-6xl font-bold text-center mb-8 text-gray-900 animate-fade-in">
+              5&10km d'Hirel
+            </h1>
+            
+            <p className="text-xl md:text-2xl text-center text-gray-700 mb-12 animate-fade-in delay-200">
+              Parcours plat, Fun & Soleil près de la Baie ! ☀️🌾
+            </p>
+
+            {/* Conteneur principal avec affiche et infos */}
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
               
-              {/* Badge "Première édition" */}
-              <div className="text-center mb-8">
-                <span className="inline-flex items-center px-6 py-3 rounded-full text-sm font-semibold bg-gradient-to-r from-[color:var(--color-jaune)] to-[color:var(--color-jaune)]/80 text-[color:var(--color-gris-fonce)] shadow-lg animate-bounce-in">
-                  ✨ PREMIÈRE ÉDITION ✨
-                </span>
+              {/* Affiche officielle */}
+              <div className="order-2 lg:order-1 animate-slide-in-left delay-300">
+                <div className="relative group">
+                  <div className="absolute -inset-4 bg-gradient-to-r from-[color:var(--color-bleu)]/20 to-[color:var(--color-vert)]/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <img 
+                    src="images/Affiche.png" 
+                    alt="Affiche officielle du 5&10km d'Hirel - Première édition"
+                    className="relative w-full max-w-md mx-auto rounded-2xl shadow-2xl transform transition-all duration-500 hover:scale-105 hover:rotate-1"
+                  />
+                </div>
               </div>
 
-              {/* Titre principal */}
-              <h1 className="text-4xl md:text-6xl font-bold text-center mb-8 gradient-text animate-fade-in">
-                5&10km d'Hirel
-              </h1>
-              
-              <p className="text-xl md:text-2xl text-center text-gray-700 mb-12 animate-fade-in delay-200">
-                Parcours plat, Fun & Soleil près de la Baie ! ☀️🌾
-              </p>
-
-              {/* Conteneur principal avec affiche et infos */}
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Informations clés */}
+              <div className="order-1 lg:order-2 space-y-8 animate-slide-in-right delay-500">
                 
-                {/* Affiche officielle */}
-                <div className="order-2 lg:order-1 animate-slide-in-left delay-300">
-                  <div className="relative group">
-                    <div className="absolute -inset-4 bg-gradient-to-r from-[color:var(--color-bleu)]/20 to-[color:var(--color-vert)]/20 rounded-3xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <img 
-                      src="images/Affiche.png" 
-                      alt="Affiche officielle du 5&10km d'Hirel - Première édition"
-                      className="relative w-full max-w-md mx-auto rounded-2xl shadow-2xl transform transition-all duration-500 hover:scale-105 hover:rotate-1"
-                    />
+                {/* Date importante */}
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20">
+                  <h2 className="text-2xl font-bold text-[color:var(--color-bleu)] mb-4 flex items-center">
+                    🗓️ Date à retenir !
+                  </h2>
+                  <p className="text-xl font-semibold text-gray-800">
+                    <span className="text-3xl text-gray-900">Dimanche 3 août 2025</span>
+                  </p>
+                  <p className="text-gray-600 mt-2">
+                    Hirel vous attend pour une matinée de course à pied mémorable (et sans trop de souffrance en montée 😉) ! ✨
+                  </p>
+                </div>
+
+                {/* Horaires */}
+                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20">
+                  <h3 className="text-xl font-bold text-[color:var(--color-bleu)] mb-4">
+                    ⏰ Programme de la matinée
+                  </h3>
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between p-3 bg-gradient-to-r from-[color:var(--color-vert)]/10 to-transparent rounded-lg">
+                      <span className="font-semibold">🏃🏻 5km</span>
+                      <span className="text-2xl font-bold text-[color:var(--color-vert)]">9h00</span>
+                    </div>
+                    <div className="flex items-center justify-between p-3 bg-gradient-to-r from-[color:var(--color-bleu)]/10 to-transparent rounded-lg">
+                      <span className="font-semibold">🏃🏻‍♂️ 10km</span>
+                      <span className="text-2xl font-bold text-[color:var(--color-bleu)]">10h00</span>
+                    </div>
                   </div>
                 </div>
 
-                {/* Informations clés */}
-                <div className="order-1 lg:order-2 space-y-8 animate-slide-in-right delay-500">
+                {/* Bouton d'inscription */}
+                <div className="text-center">
+                  <button className="btn-primary text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                    🏃‍♂️ Je m'inscris maintenant !
+                  </button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+        {/* Section Description détaillée - VERSION MODERNISÉE */}
+        <section className="py-32 bg-white">
+          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+            
+            {/* Introduction héroïque */}
+            <div className="text-center mb-20 animate-fade-in">
+              <div className="max-w-5xl mx-auto">
+                <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+                  Imaginez le tableau ✨
+                </h2>
+                <p className="text-xl lg:text-2xl text-gray-700 leading-relaxed font-light">
+                  Un soleil radieux ☀️ (On a passé commande !), l'air vivifiant de la Baie du Mont Saint-Michel 🌊 juste à côté pour l'ambiance marine, et vous, filant comme le vent au cœur de la campagne hireloise verdoyante 🌳. 
+                  <span className="font-semibold text-[color:var(--color-bleu)]"> Un cadre authentique en Ille-et-Vilaine pour une expérience qui change !</span>
+                </p>
+              </div>
+            </div>
+
+            {/* Argument choc - Parcours plat */}
+            <div className="mb-24 animate-fade-in delay-200">
+              <div className="text-center mb-12">
+                <h3 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-6 flex items-center justify-center gap-4">
+                  <span className="text-4xl lg:text-5xl">🐟</span>
+                  Le GROS plus de notre événement
+                </h3>
+              </div>
+              
+              <div className="max-w-6xl mx-auto text-center">
+                <div className="bg-gradient-to-br from-yellow-50/80 to-orange-50/80 backdrop-blur-sm rounded-3xl p-8 lg:p-16 shadow-xl border border-white/40">
+                  <p className="text-xl lg:text-3xl text-gray-800 leading-relaxed font-light mb-8">
+                    Le parcours est 
+                    <span className="font-bold text-[color:var(--color-vert)] text-2xl lg:text-4xl"> plus plat qu'une limande déshydratée !</span> 
+                  </p>
+                  <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
+                    Non, sérieusement, votre montre GPS va se demander si elle n'a pas un problème. 
+                    C'est le spot parfait pour claquer un RP et enfin avoir un graphique de dénivelé qui ressemble à une ligne droite. 
+                    <span className="font-semibold text-[color:var(--color-bleu)]">Fini les excuses du genre "ah mais ça montait trop !" 😉</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Programme en grand format */}
+            <div className="mb-24 animate-fade-in delay-300">
+              <div className="text-center mb-16">
+                <h3 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-6 flex items-center justify-center gap-4">
+                  <span className="text-4xl">🕰️</span>
+                  Programme de la matinée
+                </h3>
+                <p className="text-lg lg:text-xl text-gray-600 font-light">
+                  (et légèrement folle)
+                </p>
+              </div>
+
+              <div className="max-w-6xl mx-auto">
+                <div className="grid lg:grid-cols-2 gap-8 mb-12">
                   
-                  {/* Date importante */}
-                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20">
-                    <h2 className="text-2xl font-bold text-[color:var(--color-bleu)] mb-4 flex items-center">
-                      🗓️ Date à retenir !
-                    </h2>
-                    <p className="text-xl font-semibold text-gray-800">
-                      <span className="text-3xl text-[color:var(--color-jaune)]">Dimanche 3 août 2025</span>
-                    </p>
-                    <p className="text-gray-600 mt-2">
-                      Hirel vous attend pour une matinée de course à pied mémorable (et sans trop de souffrance en montée 😉) ! ✨
-                    </p>
-                  </div>
-
-                  {/* Horaires */}
-                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20">
-                    <h3 className="text-xl font-bold text-[color:var(--color-bleu)] mb-4">
-                      ⏰ Programme de la matinée
-                    </h3>
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between p-3 bg-gradient-to-r from-[color:var(--color-vert)]/10 to-transparent rounded-lg">
-                        <span className="font-semibold">🏃🏻 5km</span>
-                        <span className="text-2xl font-bold text-[color:var(--color-vert)]">9h00</span>
+                  {/* 5km */}
+                  <div className="group">
+                    <div className="bg-gradient-to-br from-[color:var(--color-vert)]/10 to-[color:var(--color-vert)]/5 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-xl border border-white/40 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                      <div className="text-center mb-8">
+                        <div className="text-6xl lg:text-8xl font-black text-[color:var(--color-vert)] mb-4">
+                          9h
+                        </div>
+                        <div className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">
+                          Départ du 5km
+                        </div>
+                        <div className="w-16 h-1 bg-[color:var(--color-vert)] mx-auto rounded-full"></div>
                       </div>
-                      <div className="flex items-center justify-between p-3 bg-gradient-to-r from-[color:var(--color-bleu)]/10 to-transparent rounded-lg">
-                        <span className="font-semibold">🏃🏻‍♂️ 10km</span>
-                        <span className="text-2xl font-bold text-[color:var(--color-bleu)]">10h00</span>
-                      </div>
+                      <p className="text-lg lg:text-xl text-gray-700 leading-relaxed text-center">
+                        Pour ceux qui veulent une injection rapide d'endorphines avant le brunch 🏃🏻🍃
+                      </p>
                     </div>
                   </div>
 
-                  {/* Bouton d'inscription */}
-                  <div className="text-center">
-                    <button className="btn-primary text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
-                      🏃‍♂️ Je m'inscris maintenant !
-                    </button>
+                  {/* 10km */}
+                  <div className="group">
+                    <div className="bg-gradient-to-br from-[color:var(--color-bleu)]/10 to-[color:var(--color-bleu)]/5 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-xl border border-white/40 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                      <div className="text-center mb-8">
+                        <div className="text-6xl lg:text-8xl font-black text-[color:var(--color-bleu)] mb-4">
+                          10h
+                        </div>
+                        <div className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">
+                          Départ du 10km
+                        </div>
+                        <div className="w-16 h-1 bg-[color:var(--color-bleu)] mx-auto rounded-full"></div>
+                      </div>
+                      <p className="text-lg lg:text-xl text-gray-700 leading-relaxed text-center">
+                        Pour les plus courageux ou ceux qui aiment avoir une excuse pour manger plus au déjeuner 🏃🏻‍♂️🏃🏻‍♂️🍃
+                      </p>
+                    </div>
                   </div>
+                </div>
 
+                {/* Message d'encouragement */}
+                <div className="text-center">
+                  <div className="max-w-4xl mx-auto bg-gradient-to-r from-purple-50/80 to-pink-50/80 backdrop-blur-sm rounded-3xl p-8 lg:p-12 shadow-xl border border-white/40">
+                    <p className="text-lg lg:text-2xl text-gray-800 leading-relaxed font-light italic">
+                      Rejoignez notre joyeuse troupe de passionnés 🥳 pour partager la sueur, les sourires (crispés ?) 
+                      et l'incroyable sensation d'avoir accompli quelque chose avant midi !
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* Section Description détaillée */}
-        <section className="py-20 bg-white/50">
-          <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto">
-              
-              <div className="prose prose-lg mx-auto text-gray-700 leading-relaxed space-y-8">
+            {/* Pourquoi venir - Version épurée */}
+            <div className="mb-24 animate-fade-in delay-500">
+              <div className="text-center mb-16">
+                <h3 className="text-2xl lg:text-4xl font-bold text-gray-900 mb-6 flex items-center justify-center gap-4">
+                  <span className="text-4xl">🎯</span>
+                  Pourquoi vous DEVEZ venir
+                </h3>
+                <p className="text-lg lg:text-xl text-gray-600 font-light">
+                  (on insiste un peu)
+                </p>
+              </div>
+
+              <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8">
                 
-                {/* Introduction */}
-                <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-2xl p-8 animate-fade-in">
-                  <p className="text-xl leading-relaxed">
-                    <strong>Imaginez le tableau :</strong> Un soleil radieux ☀️ (On a passé commande !), l'air vivifiant de la Baie du Mont Saint-Michel 🌊 juste à côté pour l'ambiance marine, et vous, filant comme le vent (ou presque !) au cœur de la campagne hireloise verdoyante 🌳, entre les champs. Un cadre authentique en Ille-et-Vilaine pour une expérience qui change !
-                  </p>
-                </div>
-
-                {/* Argument choc - Parcours plat */}
-                <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-8 animate-fade-in delay-200">
-                  <h3 className="text-2xl font-bold text-[color:var(--color-bleu)] mb-4 flex items-center">
-                    🐟 Le GROS plus de notre événement
-                  </h3>
-                  <p className="text-lg">
-                    Le parcours est <strong>plus plat qu'une limande déshydratée !</strong> 🐟 Non, sérieusement, votre montre GPS va se demander si elle n'a pas un problème. C'est le spot parfait pour claquer un RP et enfin avoir un graphique de dénivelé qui ressemble à une ligne droite. Fini les excuses du genre "ah mais ça montait trop !" 😉
-                  </p>
-                </div>
-
-                {/* Programme détaillé */}
-                <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 animate-fade-in delay-300">
-                  <h3 className="text-2xl font-bold text-[color:var(--color-bleu)] mb-6">
-                    🕰️ Au programme de cette matinée sportive (et légèrement folle)
-                  </h3>
-                  <div className="space-y-4">
-                    <div className="flex items-start space-x-4 p-4 bg-white/60 rounded-xl">
-                      <span className="text-2xl font-bold text-[color:var(--color-vert)] min-w-[60px]">9h</span>
-                      <div>
-                        <strong>Départ du 5km.</strong> Pour ceux qui veulent une injection rapide d'endorphines avant le brunch. 🏃🏻🍃
-                      </div>
-                    </div>
-                    <div className="flex items-start space-x-4 p-4 bg-white/60 rounded-xl">
-                      <span className="text-2xl font-bold text-[color:var(--color-bleu)] min-w-[60px]">10h</span>
-                      <div>
-                        <strong>Départ du 10km.</strong> Pour les plus courageux ou ceux qui aiment avoir une excuse pour manger plus au déjeuner. 🏃🏻‍♂️🏃🏻‍♂️🍃
-                      </div>
-                    </div>
-                  </div>
-                  <p className="mt-6 text-lg italic text-center">
-                    Rejoignez notre joyeuse troupe de passionnés 🥳 pour partager la sueur, les sourires (crispés ?) et l'incroyable sensation d'avoir accompli quelque chose avant midi !
-                  </p>
-                </div>
-
-                {/* Pourquoi venir */}
-                <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8 animate-fade-in delay-500">
-                  <h3 className="text-2xl font-bold text-[color:var(--color-bleu)] mb-6">
-                    🎯 Pourquoi vous DEVEZ venir (on insiste un peu)
-                  </h3>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="flex items-start space-x-3 p-4 bg-white/60 rounded-xl">
-                      <span className="text-2xl">☀️</span>
-                      <div>
-                        <strong>Un soleil radieux</strong> commandé spécialement pour l'occasion (on croise les doigts très fort 🤞🏻).
-                      </div>
-                    </div>
-                    <div className="flex items-start space-x-3 p-4 bg-white/60 rounded-xl">
-                      <span className="text-2xl">💐</span>
-                      <div>
-                        <strong>Un parcours 100% champêtre.</strong> Possibilité d'apercevoir des lapins 🐇 (option non contractuelle).
-                      </div>
-                    </div>
-                    <div className="flex items-start space-x-3 p-4 bg-white/60 rounded-xl">
-                      <span className="text-2xl">🏃🏻‍♂️</span>
-                      <div>
-                        <strong>Un profil ULTRA PLAT !</strong> (Oui, on insiste, c'est notre argument choc !). Votre cardio vous dira merci... peut-être.
-                      </div>
-                    </div>
-                    <div className="flex items-start space-x-3 p-4 bg-white/60 rounded-xl">
-                      <span className="text-2xl">🎉</span>
-                      <div>
-                        <strong>Une ambiance électrique et conviviale !</strong> Venez avec votre bonne humeur, on fournit le reste (et peut-être des encouragements bruyants).
-                      </div>
+                <div className="bg-gradient-to-br from-yellow-50/80 to-yellow-100/50 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-xl border border-white/40 hover:shadow-2xl transition-all duration-500">
+                  <div className="flex items-start gap-6">
+                    <span className="text-4xl lg:text-5xl flex-shrink-0">☀️</span>
+                    <div>
+                      <h4 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">Un soleil radieux</h4>
+                      <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
+                        commandé spécialement pour l'occasion (on croise les doigts très fort 🤞🏻).
+                      </p>
                     </div>
                   </div>
                 </div>
 
-                {/* Call to action final */}
-                <div className="bg-gradient-to-r from-[color:var(--color-jaune)]/20 to-[color:var(--color-vert)]/20 rounded-2xl p-8 text-center animate-fade-in delay-700">
-                  <h3 className="text-2xl font-bold text-[color:var(--color-bleu)] mb-4">
-                    🏃‍♀️ Alors, prêt(e) à relever le défi (plat) ?
-                  </h3>
-                  <p className="text-lg mb-6">
-                    Laissez vos excuses au vestiaire, enfilez vos plus belles chaussettes de running (celles avec des motifs rigolos sont encouragées) et ramenez-vous à Hirel le <strong>3 août 2025</strong> ! Promis, vous repartirez avec des souvenirs plein la tête... et peut-être l'envie de revenir l'année prochaine (ou de faire une sieste immédiate 😂).
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <button className="btn-primary text-xl px-10 py-4 rounded-xl">
-                      🏃‍♂️ Je m'inscris !
-                    </button>
-                    <p className="text-lg font-semibold text-[color:var(--color-bleu)]">
-                      On vous attend de pied ferme ! 😊👍
-                    </p>
+                <div className="bg-gradient-to-br from-green-50/80 to-green-100/50 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-xl border border-white/40 hover:shadow-2xl transition-all duration-500">
+                  <div className="flex items-start gap-6">
+                    <span className="text-4xl lg:text-5xl flex-shrink-0">💐</span>
+                    <div>
+                      <h4 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">Un parcours 100% champêtre</h4>
+                      <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
+                        Possibilité d'apercevoir des lapins 🐇 (option non contractuelle).
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-blue-50/80 to-blue-100/50 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-xl border border-white/40 hover:shadow-2xl transition-all duration-500">
+                  <div className="flex items-start gap-6">
+                    <span className="text-4xl lg:text-5xl flex-shrink-0">🏃🏻‍♂️</span>
+                    <div>
+                      <h4 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">Un profil ULTRA PLAT !</h4>
+                      <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
+                        (Oui, on insiste, c'est notre argument choc !) Votre cardio vous dira merci... peut-être.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-gradient-to-br from-purple-50/80 to-purple-100/50 backdrop-blur-sm rounded-3xl p-8 lg:p-10 shadow-xl border border-white/40 hover:shadow-2xl transition-all duration-500">
+                  <div className="flex items-start gap-6">
+                    <span className="text-4xl lg:text-5xl flex-shrink-0">🎉</span>
+                    <div>
+                      <h4 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4">Une ambiance électrique</h4>
+                      <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
+                        Venez avec votre bonne humeur, on fournit le reste (et peut-être des encouragements bruyants).
+                      </p>
+                    </div>
                   </div>
                 </div>
 
               </div>
             </div>
+
+            {/* Call to action final - Grand format */}
+            <div className="animate-fade-in delay-700">
+              <div className="max-w-6xl mx-auto text-center">
+                <div className="bg-gradient-to-br from-[color:var(--color-jaune)]/20 via-[color:var(--color-vert)]/20 to-[color:var(--color-bleu)]/20 backdrop-blur-sm rounded-3xl p-8 lg:p-16 shadow-2xl border border-white/40">
+                  
+                  <div className="mb-12">
+                    <h3 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-8 leading-tight">
+                      Alors, prêt(e) à relever le défi
+                      <br />
+                      <span className="text-[color:var(--color-bleu)]">(plat) ?</span> 🏃‍♀️
+                    </h3>
+                  </div>
+
+                  <div className="max-w-4xl mx-auto mb-12">
+                    <p className="text-lg lg:text-2xl text-gray-700 leading-relaxed font-light mb-8">
+                      Laissez vos excuses au vestiaire, enfilez vos plus belles chaussettes de running 
+                      (celles avec des motifs rigolos sont encouragées) et ramenez-vous à Hirel le 
+                      <span className="font-bold text-[color:var(--color-bleu)] text-xl lg:text-3xl"> 3 août 2025</span> !
+                    </p>
+                    <p className="text-lg lg:text-xl text-gray-700 leading-relaxed">
+                      Promis, vous repartirez avec des souvenirs plein la tête... et peut-être l'envie de revenir 
+                      l'année prochaine (ou de faire une sieste immédiate 😂).
+                    </p>
+                  </div>
+
+                  <div className="flex flex-col lg:flex-row gap-8 items-center justify-center">
+                    <button className="group bg-gradient-to-r from-[color:var(--color-bleu)] to-[color:var(--color-vert)] text-white text-xl lg:text-2xl font-bold px-12 py-6 rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-300 hover:scale-105">
+                      <span className="group-hover:animate-bounce">🏃‍♂️</span> Je m'inscris maintenant !
+                    </button>
+                    <div className="text-center lg:text-left">
+                      <p className="text-xl lg:text-2xl font-bold text-[color:var(--color-bleu)] mb-2">
+                        On vous attend de pied ferme !
+                      </p>
+                      <p className="text-2xl lg:text-3xl">😊👍</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
           </div>
         </section>
+
 
         {/* Section Carrousel vidéo */}
         <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">

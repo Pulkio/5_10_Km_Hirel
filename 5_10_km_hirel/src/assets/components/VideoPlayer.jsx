@@ -55,17 +55,19 @@ const VideoPlayer = ({
   }, [autoplay]);
 
   return (
-    <div className={`
-      relative w-full flex items-center justify-center
-      ${isVertical 
-        ? 'aspect-[9/16] max-h-[70vh] h-[70vh] vertical-video-player p-2 md:p-4'
-        : 'aspect-video p-2 md:p-4'
-      }
-    `} style={{background: 'transparent'}}>
+    <div
+      className={`transition-opacity duration-200 flex items-center justify-center`}
+      style={isVertical
+        ? { aspectRatio: '9/16', maxHeight: '70vh', height: '70vh', maxWidth: 'calc(70vh * 9 / 16)', margin: '0 auto', background: 'none', padding: 0 }
+        : { aspectRatio: '16/9', width: '100%', maxWidth: 700, margin: '0 auto', background: 'none', padding: 0 }}
+    >
       {/* On limite la hauteur max à 70vh pour éviter de coller aux bords */}
       <video
         ref={videoRef}
-        className={`w-full h-full ${isVertical ? 'object-contain vertical-video-player bg-black' : 'object-cover bg-black'} rounded-2xl shadow-2xl video-no-focus`}
+        className={`h-full mx-auto video-no-focus ${isVertical ? 'aspect-[9/16] object-contain vertical-video-player' : 'aspect-video object-cover'}`}
+        style={isVertical
+          ? { aspectRatio: '9/16', maxHeight: '70vh', height: '70vh', width: 'auto', background: 'none', border: 'none', boxShadow: 'none', display: 'block' }
+          : { aspectRatio: '16/9', width: '100%', background: 'none', border: 'none', boxShadow: 'none', display: 'block' }}
         poster={poster}
         controls
         preload="metadata"

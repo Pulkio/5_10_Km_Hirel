@@ -39,24 +39,22 @@ export default function FadeVideoPlayer({ video }) {
   return (
     <div className="mb-10 flex justify-center">
       <div
-        className={`transition-opacity duration-200 ${visible ? 'opacity-100' : 'opacity-0'} ` +
-          (currentVideo.isVertical
-            ? 'aspect-[9/16] max-h-[70vh] w-full flex items-center justify-center p-2 md:p-4'
-            : 'aspect-video h-auto w-full flex items-center justify-center p-2 md:p-4')
-        }
-        style={currentVideo.isVertical ? { width: '100%', maxWidth: 420, margin: '0 auto', background: 'transparent' } : { width: '100%', maxWidth: 700, margin: '0 auto', background: 'transparent' }}
+        className={`transition-opacity duration-200 ${visible ? 'opacity-100' : 'opacity-0'} flex items-center justify-center`}
+        style={currentVideo.isVertical
+          ? { aspectRatio: '9/16', maxHeight: '70vh', height: '70vh', maxWidth: 'calc(70vh * 9 / 16)', margin: '0 auto', background: 'none', padding: 0 }
+          : { aspectRatio: '16/9', width: '100%', maxWidth: 700, margin: '0 auto', background: 'none', padding: 0 }}
       >
         <video
           key={currentVideo.id}
           ref={videoRef}
           {...(showControls ? { controls: true } : {})}
           {...(currentVideo.poster ? { poster: currentVideo.poster } : {})}
-          className={`w-full h-full rounded-2xl shadow-2xl video-no-focus ${currentVideo.isVertical ? 'aspect-[9/16] object-contain vertical-video-player bg-black' : 'aspect-video object-cover bg-black'}`}
+          className={`h-full mx-auto video-no-focus ${currentVideo.isVertical ? 'aspect-[9/16] object-contain vertical-video-player' : 'aspect-video object-cover'}`}
           tabIndex={-1}
           autoFocus={false}
           preload="metadata"
           controlsList="nodownload noremoteplayback"
-          style={currentVideo.isVertical ? { aspectRatio: '9/16', maxHeight: '70vh', height: '70vh', width: '100%' } : { aspectRatio: '16/9', width: '100%' }}
+          style={currentVideo.isVertical ? { aspectRatio: '9/16', maxHeight: '70vh', height: '70vh', width: 'auto', background: 'none', border: 'none', boxShadow: 'none', display: 'block' } : { aspectRatio: '16/9', width: '100%', background: 'none', border: 'none', boxShadow: 'none', display: 'block' }}
           onLoadStart={() => {
             if (videoRef.current) {
               videoRef.current.blur();

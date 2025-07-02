@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 /**
  * Composant Header ULTRA-MODERNE pour l'en-tête du site.
@@ -56,11 +57,20 @@ const Header = () => {
   };
 
   const navLinks = [
+  { to: '/', text: 'Accueil', icon: '🏠' },
+  { to: '/infos', text: 'Infos pratiques', icon: '📍' },
+  { to: '/photos', text: 'Photos & Résultats', icon: '📸' },
+  { to: '/partenaires', text: 'Partenaires', icon: '🤝' }
+
+  ] ;
+
+  /*
+  const navLinks = [
     { href: "#epreuves", text: "Épreuves", icon: "🏃🏻" },
     { href: "#infos", text: "Infos pratiques", icon: "📍" },
     { href: "#photos", text: "Photos & Résultats", icon: "📸" },
     { href: "#partenaires", text: "Partenaires", icon: "🤝" }
-  ];
+  ]; */
 
   return (
     <>
@@ -121,13 +131,14 @@ const Header = () => {
               <nav className="flex items-center">
                 <div className="flex items-center space-x-3 lg:space-x-4 p-3 rounded-2xl backdrop-blur-xl bg-white/20 border-2 border-white/30 shadow-2xl">
                   {navLinks.map((link, index) => (
-                    <a
+                    <Link
                       key={index}
-                      href={link.href}
+                      to={link.to}
                       className="group relative flex items-center space-x-3 px-6 lg:px-8 py-4 lg:py-5 rounded-xl bg-gradient-to-r from-[color:var(--color-jaune)] to-yellow-400 text-[color:var(--color-bleu)] font-bold text-base lg:text-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 hover:-translate-y-1 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[color:var(--color-jaune)] whitespace-nowrap border-2 border-yellow-300/50"
                       style={{
                         textShadow: '0 1px 2px rgba(0,0,0,0.1)'
                       }}
+                      onClick={handleLinkClick}
                     >
                       {/* Icône avec animation */}
                       <span className="text-xl lg:text-2xl group-hover:scale-125 group-hover:rotate-12 transition-transform duration-300">
@@ -142,7 +153,7 @@ const Header = () => {
                       
                       {/* Ombre interne pour l'effet 3D */}
                       <div className="absolute inset-0 rounded-xl shadow-inner opacity-30"></div>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </nav>
@@ -203,7 +214,7 @@ const Header = () => {
               
               {/* Header du menu - Sans logo H */}
               <div className="flex items-center justify-between p-6 border-b border-white/10">
-                <h2 className="text-2xl font-bold bg-gradient-to-r from-[color:var(--color-jaune)] to-yellow-400 bg-clip-text text-transparent">
+                <h2 className="text-2xl font-bold" style={{ color: '#FFD600' }}>
                   🏃‍♂️ Navigation
                 </h2>
                 
@@ -230,8 +241,8 @@ const Header = () => {
                         animation: isMobileMenuOpen ? 'slideInRight 0.5s ease-out forwards' : undefined
                       }}
                     >
-                      <a
-                        href={link.href}
+                      <Link
+                        to={link.to}
                         onClick={handleLinkClick}
                         className="group flex items-center space-x-4 w-full px-6 py-5 rounded-2xl bg-gradient-to-r from-[color:var(--color-jaune)] to-yellow-400 text-[color:var(--color-bleu)] font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-105 hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white border-2 border-yellow-300/50"
                         style={{
@@ -252,7 +263,7 @@ const Header = () => {
                         
                         {/* Effet de brillance */}
                         <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>

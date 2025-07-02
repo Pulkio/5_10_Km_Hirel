@@ -353,9 +353,23 @@ const Accueil = () => {
               )}
 
               {/* 🎯 Grille des vidéos (filtrées ou complètes) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+              <div
+                className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-4 md:gap-6"
+                style={{
+                  maxWidth: '1000px', // plus large sur desktop
+                  margin: '0 auto',
+                  gridAutoRows: '1fr',
+                }}
+              >
                 {getRelatedVideos().map((video, index) => {
                   const isActive = activeCarouselVideo && video.id === activeCarouselVideo.id;
+                  // Responsive sizing: smaller on mobile, larger on desktop (CSS only)
+                  let cardStyle = {
+                    minWidth: 0,
+                    padding: '2px',
+                    width: '100%',
+                    aspectRatio: '9/16',
+                  };
                   return (
                     <button
                       key={video.id}
@@ -366,10 +380,7 @@ const Accueil = () => {
                         e.preventDefault();
                         if (!isActive) setActiveCarouselVideo(video);
                       }}
-                      className={`relative flex-shrink-0 group transition-all duration-300 scale-90 opacity-60 hover:opacity-80 hover:scale-95 animate-fade-in delay-${index * 100 + 400} w-full focus:outline-none rounded-2xl ${
-                        isActive ? 'ring-2 ring-[color:var(--color-jaune)] ring-opacity-70 scale-100 opacity-100 z-10' : ''
-                      }`}
-                      aria-label={`Sélectionner la vidéo ${video.title}`}
+                      className={`relative flex-shrink-0 group transition-all duration-300 scale-90 opacity-60 hover:opacity-80 hover:scale-95 animate-fade-in delay-${index * 100 + 400} w-full focus:outline-none rounded-2xl video-grid-item ${isActive ? 'ring-2 ring-[color:var(--color-jaune)] ring-opacity-70 scale-100 opacity-100 z-10 ' : ''}max-w-[90px] max-h-[140px] sm:max-w-[130px] sm:max-h-[200px] md:max-w-[180px] md:max-h-[270px] lg:max-w-[220px] lg:max-h-[330px]`}
                     >
                       <VideoCard
                         title={video.title}
@@ -387,7 +398,6 @@ const Accueil = () => {
                     </button>
                   );
                 })}
-
               </div>
 
             </div>

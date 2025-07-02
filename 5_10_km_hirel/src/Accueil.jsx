@@ -131,9 +131,10 @@ const Accueil = () => {
                 </span>
               </div>
 
-              {/* Titre principal SANS dégradé */}
-              <h1 className="text-4xl md:text-6xl font-bold text-center mb-8 text-gray-900 animate-fade-in">
-                5&10km d'Hirel
+              {/* Titre principal avec charte graphique moderne */}
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-8 animate-fade-in text-[color:var(--color-bleu)]">
+                <span className="bg-gradient-to-r from-[color:var(--color-bleu)] to-blue-700 bg-clip-text text-transparent">5&amp;10km</span>
+                <span className="text-[color:var(--color-bleu)]"> d'Hirel</span>
               </h1>
               
               <p className="text-xl md:text-2xl text-center text-gray-700 mb-12 animate-fade-in delay-200">

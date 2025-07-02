@@ -55,7 +55,7 @@ const InfosPratiques = () => {
               {/* Carte Dossards */}
               <div className="group relative animate-slide-up">
                 <div className="absolute -inset-1 bg-gradient-to-r from-[color:var(--color-jaune)] via-yellow-400 to-[color:var(--color-jaune)] rounded-3xl opacity-75 group-hover:opacity-100 transition-all duration-300 blur-sm group-hover:blur-none"></div>
-                <div className="relative bg-white/95 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 hover:bg-white transition-all duration-300">
+                <div className="relative bg-white/95 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 hover:bg-white transition-all duration-300 h-full">
                   
                   {/* Header avec icône */}
                   <div className="flex items-center space-x-4 mb-6">
@@ -71,13 +71,13 @@ const InfosPratiques = () => {
                       <div className="space-y-4">
                         <div className="flex items-center justify-between p-4 bg-white rounded-xl shadow-sm">
                           <span className="font-bold text-gray-900">Samedi 2 août</span>
-                          <span className="px-4 py-2 bg-[color:var(--color-jaune)] text-white font-bold rounded-lg">
+                          <span className="px-4 py-2 bg-[color:var(--color-jaune)] text-gray-900 font-bold rounded-lg">
                             15h à 18h
                           </span>
                         </div>
                         <div className="flex items-center justify-between p-4 bg-white rounded-xl shadow-sm">
                           <span className="font-bold text-gray-900">Dimanche 3 août</span>
-                          <span className="px-4 py-2 bg-[color:var(--color-jaune)] text-white font-bold rounded-lg">
+                          <span className="px-4 py-2 bg-[color:var(--color-jaune)] text-gray-900 font-bold rounded-lg">
                             à partir de 7h30
                           </span>
                         </div>
@@ -102,7 +102,7 @@ const InfosPratiques = () => {
               {/* Carte Parkings */}
               <div className="group relative animate-slide-up delay-100">
                 <div className="absolute -inset-1 bg-gradient-to-r from-[color:var(--color-vert)] via-green-400 to-[color:var(--color-vert)] rounded-3xl opacity-75 group-hover:opacity-100 transition-all duration-300 blur-sm group-hover:blur-none"></div>
-                <div className="relative bg-white/95 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 hover:bg-white transition-all duration-300">
+                <div className="relative bg-white/95 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 hover:bg-white transition-all duration-300 h-full">
                   
                   <div className="flex items-center space-x-4 mb-6">
                     <div className="w-16 h-16 bg-gradient-to-r from-[color:var(--color-vert)] to-green-400 rounded-2xl flex items-center justify-center text-3xl shadow-lg">
@@ -123,7 +123,8 @@ const InfosPratiques = () => {
                             📍
                           </div>
                           <div>
-                            <p className="font-bold text-gray-900">8-16 Rue du Bord de Mer, 35120 Hirel</p>
+                            <p className="font-bold text-gray-900">Parking du cimetière d'Hirel</p>
+                            <p className="text-gray-700">Cimetière, 8-16 Rue du Bord de Mer, 35120 Hirel</p>
                             <p className="text-sm text-gray-600 mt-1">⏱️ À 10 min à pied du départ</p>
                           </div>
                         </div>
@@ -143,7 +144,7 @@ const InfosPratiques = () => {
               {/* Carte Ravitaillements */}
               <div className="group relative animate-slide-up delay-200">
                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-blue-400 to-blue-500 rounded-3xl opacity-75 group-hover:opacity-100 transition-all duration-300 blur-sm group-hover:blur-none"></div>
-                <div className="relative bg-white/95 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 hover:bg-white transition-all duration-300">
+                <div className="relative bg-white/95 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 hover:bg-white transition-all duration-300 h-full">
                   
                   <div className="flex items-center space-x-4 mb-6">
                     <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-400 rounded-2xl flex items-center justify-center text-3xl shadow-lg">
@@ -168,14 +169,22 @@ const InfosPratiques = () => {
                       </div>
                       <p className="text-gray-700 ml-2">🥤 Devant la salle intergénérationnelle d'Hirel</p>
                     </div>
+
+                    {/* Contenu de remplissage pour égaliser la hauteur */}
+                    <div className="bg-gray-50 rounded-2xl p-6">
+                      <div className="flex items-center space-x-3">
+                        <span className="text-2xl">💪</span>
+                        <p className="text-gray-700 font-medium">Hydratez-vous bien avant, pendant et après l'effort !</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Carte Contact */}
+              {/* Carte Contact - HAUTEUR ÉGALISÉE */}
               <div className="group relative animate-slide-up delay-300">
                 <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-500 rounded-3xl opacity-75 group-hover:opacity-100 transition-all duration-300 blur-sm group-hover:blur-none"></div>
-                <div className="relative bg-white/95 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 hover:bg-white transition-all duration-300">
+                <div className="relative bg-white/95 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 hover:bg-white transition-all duration-300 h-full flex flex-col">
                   
                   <div className="flex items-center space-x-4 mb-6">
                     <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-3xl shadow-lg">
@@ -184,42 +193,60 @@ const InfosPratiques = () => {
                     <h2 className="text-3xl font-bold text-gray-900">Contact</h2>
                   </div>
 
-                  <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-6">
-                    <p className="text-lg text-gray-700 mb-4 text-center">Pour toute question, n'hésitez pas à nous contacter</p>
-                    <div className="text-center">
-                      <a 
-                        href="mailto:contact.gmj.events@gmail.com" 
-                        className="inline-flex items-center space-x-3 px-6 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-                      >
-                        <span className="text-xl">✉️</span>
-                        <span>contact.gmj.events@gmail.com</span>
-                      </a>
+                  <div className="flex-1 flex flex-col justify-center space-y-6">
+                    <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-8">
+                      <p className="text-lg text-gray-700 mb-6 text-center">Pour toute question, n'hésitez pas à nous contacter</p>
+                      <div className="text-center">
+                        <a 
+                          href="mailto:contact.gmj.events@gmail.com" 
+                          className="inline-flex items-center space-x-3 px-6 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+                        >
+                          <span className="text-xl">✉️</span>
+                          <span>contact.gmj.events@gmail.com</span>
+                        </a>
+                      </div>
+                    </div>
+
+                    {/* Informations supplémentaires pour égaliser */}
+                    <div className="bg-gray-50 rounded-2xl p-6">
+                      <div className="text-center space-y-3">
+                        <div className="flex items-center justify-center space-x-2">
+                          <span className="text-xl">⚡</span>
+                          <span className="font-semibold text-gray-900">Réponse rapide</span>
+                        </div>
+                        <p className="text-gray-600 text-sm">Nous répondons généralement sous 24h</p>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-blue-50 to-green-50 rounded-2xl p-6">
+                      <div className="text-center space-y-3">
+                        <div className="flex items-center justify-center space-x-2">
+                          <span className="text-xl">📱</span>
+                          <span className="font-semibold text-gray-900">Informations en temps réel</span>
+                        </div>
+                        <p className="text-gray-600 text-sm">Suivez-nous pour les dernières actualités</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Section bonus - Conseils pratiques */}
+            {/* Section Conseils - TEXTE BLANC */}
             <div className="mt-16 animate-slide-up delay-400">
               <div className="bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/20">
                 <div className="text-center mb-8">
-                  <h3 className="text-3xl font-bold text-white mb-4">💡 Conseils pratiques</h3>
-                  <div className="grid md:grid-cols-3 gap-6">
+                  <h3 className="text-3xl font-bold text-white mb-4">💡 <span className="text-white">Conseils</span></h3>
+                  <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
                     <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                      <div className="text-4xl mb-3">👟</div>
-                      <h4 className="font-bold text-white mb-2">Équipement</h4>
-                      <p className="text-white/80 text-sm">Chaussures de trail recommandées pour le terrain varié</p>
+                      <div className="text-4xl mb-3 text-white">⏰</div>
+                      <h4 className="font-bold text-white mb-4 text-2xl"> <span className="text-white">Ponctualité</span></h4>
+                      <p className="text-white text-lg font-semibold"><span className="text-white">Arrivez au moins 1h avant votre épreuve, le temps de récupérer les dossards</span></p>
                     </div>
                     <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                      <div className="text-4xl mb-3">🌡️</div>
-                      <h4 className="font-bold text-white mb-2">Météo</h4>
-                      <p className="text-white/80 text-sm">Vérifiez les conditions météo et adaptez votre tenue</p>
-                    </div>
-                    <div className="bg-white/10 rounded-2xl p-6 backdrop-blur-sm">
-                      <div className="text-4xl mb-3">⏰</div>
-                      <h4 className="font-bold text-white mb-2">Ponctualité</h4>
-                      <p className="text-white/80 text-sm">Arrivez 30 min avant le départ pour l'échauffement</p>
+                      <div className="text-4xl mb-3 text-white">🤝</div>
+                      <h4 className="font-bold text-white mb-4 text-2xl"><span className="text-white">Bénévoles</span></h4>
+                      <p className="text-white text-lg font-semibold"><span className="text-white">Soyez sympa avec nos bénévoles qui vont tout faire pour que l'événement se passe au mieux</span></p>
                     </div>
                   </div>
                 </div>

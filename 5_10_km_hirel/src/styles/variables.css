@@ -1,0 +1,18 @@
+/* Variables CSS personnalisées pour le thème du site */
+:root {
+  --color-bleu: #2a3f54;
+  --color-jaune: #ffd166;
+  --color-vert: #06d6a0;
+  --color-gris-clair: #f8f9fa;
+  --color-gris-fonce: #343a40;
+  --color-blanc: #ffffff;
+  --color-noir: #000000;
+  --color-bleu-clair: #4a90e2;
+  --color-jaune-clair: #ffe999;
+  --color-shadow: rgba(42, 63, 84, 0.1);
+  --color-overlay: rgba(0, 0, 0, 0.5);
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-medium: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}

@@ -1,0 +1,445 @@
+/* Styles pour tous les types de boutons - Design système cohérent */
+
+/* === BOUTONS DE BASE === */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.12s cubic-bezier(0.4,0,0.2,1);
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+  will-change: transform;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-jaune);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* === BOUTON PRIMAIRE === */
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-bleu), var(--color-bleu-clair));
+  color: white;
+  box-shadow: 0 4px 12px rgba(42, 63, 84, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(42, 63, 84, 0.3);
+  background: linear-gradient(135deg, var(--color-bleu-clair), var(--color-bleu));
+  transition: all 0.12s cubic-bezier(0.4,0,0.2,1);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(42, 63, 84, 0.2);
+  transition: transform 0.1s ease;
+}
+
+/* === BOUTON SECONDAIRE === */
+.btn-secondary {
+  background: transparent;
+  color: var(--color-bleu);
+  border: 2px solid var(--color-bleu);
+  box-shadow: 0 2px 8px rgba(42, 63, 84, 0.1);
+}
+
+.btn-secondary:hover {
+  background: var(--color-bleu);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(42, 63, 84, 0.2);
+  transition: all 0.12s cubic-bezier(0.4,0,0.2,1);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(42, 63, 84, 0.1);
+}
+
+/* === BOUTON CALL-TO-ACTION (CTA) === */
+.btn-cta {
+  background: linear-gradient(135deg, var(--color-bleu), var(--color-vert));
+  color: white;
+  border: none;
+  padding: 1rem 3rem;
+  border-radius: 1.5rem;
+  font-weight: 700;
+  font-size: 1.125rem;
+  box-shadow: 0 8px 25px rgba(42, 63, 84, 0.3);
+  transition: all var(--transition-hover);
+  position: relative;
+  overflow: hidden;
+  transform: translateY(0);
+}
+
+/* Effet de brillance sur le CTA */
+.btn-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255,255,255,0.2), 
+    transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(42, 63, 84, 0.4);
+  transition: all 0.12s cubic-bezier(0.4,0,0.2,1);
+}
+
+.btn-cta:hover::before {
+  left: 100%;
+}
+
+.btn-cta:active {
+  transform: translateY(0);
+  transition: transform 0.1s ease;
+}
+
+/* === BOUTON SUCCESS === */
+.btn-success {
+  background: linear-gradient(135deg, var(--color-vert), #10b981);
+  color: white;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2);
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.3);
+  background: linear-gradient(135deg, #10b981, var(--color-vert));
+  transition: all 0.12s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* === BOUTON WARNING === */
+.btn-warning {
+  background: linear-gradient(135deg, var(--color-jaune), #f59e0b);
+  color: var(--color-gris-fonce);
+  box-shadow: 0 4px 12px rgba(255, 209, 102, 0.2);
+}
+
+.btn-warning:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 209, 102, 0.3);
+  background: linear-gradient(135deg, #f59e0b, var(--color-jaune));
+  transition: all 0.12s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* === BOUTON DANGER === */
+.btn-danger {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+.btn-danger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3);
+  background: linear-gradient(135deg, #dc2626, #ef4444);
+  transition: all 0.12s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* === BOUTON GHOST === */
+.btn-ghost {
+  background: transparent;
+  color: var(--color-gris-fonce);
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: none;
+}
+
+.btn-ghost:hover {
+  background: rgba(0,0,0,0.05);
+  border-color: rgba(0,0,0,0.2);
+  transform: translateY(-1px);
+  transition: all 0.12s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* === BOUTON OUTLINE === */
+.btn-outline {
+  background: transparent;
+  color: var(--color-bleu);
+  border: 1px solid var(--color-bleu);
+  box-shadow: none;
+}
+
+.btn-outline:hover {
+  background: var(--color-bleu);
+  color: white;
+  transform: translateY(-1px);
+  transition: all 0.12s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* === TAILLES DE BOUTONS === */
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  border-radius: 6px;
+}
+
+.btn-md {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  border-radius: 8px;
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 10px;
+}
+
+.btn-xl {
+  padding: 1.25rem 2.5rem;
+  font-size: 1.2rem;
+  border-radius: 12px;
+}
+
+/* === BOUTONS AVEC ICÔNES === */
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-icon-only {
+  padding: 0.75rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.btn-icon-left {
+  padding-left: 1rem;
+}
+
+.btn-icon-right {
+  padding-right: 1rem;
+}
+
+/* === BOUTONS SPÉCIALISÉS === */
+.btn-floating {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-bleu);
+  color: white;
+  border: none;
+  box-shadow: 0 8px 24px rgba(42, 63, 84, 0.3);
+  z-index: 100;
+  transition: all var(--transition-fast);
+}
+
+.btn-floating:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 12px 32px rgba(42, 63, 84, 0.4);
+  transition: all 0.12s cubic-bezier(0.4,0,0.2,1);
+}
+
+.btn-gradient-rainbow {
+  background: linear-gradient(45deg, 
+    var(--color-bleu) 0%, 
+    var(--color-vert) 25%, 
+    var(--color-jaune) 50%, 
+    var(--color-bleu-clair) 75%, 
+    var(--color-bleu) 100%);
+  background-size: 300% 300%;
+  animation: rainbow 3s ease infinite;
+  color: white;
+  border: none;
+}
+
+@keyframes rainbow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.btn-pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(42, 63, 84, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(42, 63, 84, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(42, 63, 84, 0); }
+}
+
+/* === GROUPES DE BOUTONS === */
+.btn-group {
+  display: inline-flex;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.btn-group .btn {
+  border-radius: 0;
+  border-right: 1px solid rgba(255,255,255,0.2);
+  margin: 0;
+}
+
+.btn-group .btn:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.btn-group .btn:last-child {
+  border-radius: 0 8px 8px 0;
+  border-right: none;
+}
+
+.btn-group .btn:only-child {
+  border-radius: 8px;
+  border-right: none;
+}
+
+/* === ÉTATS DE CHARGEMENT === */
+.btn-loading {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+}
+
+.btn-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border: 2px solid currentColor;
+  border-color: currentColor transparent currentColor transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+  .btn-cta {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+  
+  .btn-xl {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+  
+  .btn-lg {
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+  }
+  
+  .btn-floating {
+    bottom: 1rem;
+    right: 1rem;
+    width: 48px;
+    height: 48px;
+  }
+  
+  .btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .btn-group .btn {
+    border-radius: 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+  }
+  
+  .btn-group .btn:first-child {
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .btn-group .btn:last-child {
+    border-radius: 0 0 8px 8px;
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-cta {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    border-radius: 1rem;
+  }
+  
+  .btn {
+    min-height: 44px; /* Touch target minimum */
+  }
+}
+
+/* === ACCESSIBILITÉ === */
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .btn-floating,
+  .btn-pulse,
+  .btn-gradient-rainbow {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .btn:hover,
+  .btn:active {
+    transform: none !important;
+  }
+}
+
+/* === HIGH CONTRAST === */
+@media (prefers-contrast: high) {
+  .btn {
+    border: 2px solid currentColor;
+  }
+  
+  .btn-ghost,
+  .btn-outline {
+    border-width: 2px;
+  }
+}
+
+/* === PRINT STYLES === */
+@media print {
+  .btn {
+    background: none !important;
+    color: black !important;
+    border: 2px solid black !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+  
+  .btn-floating {
+    display: none !important;
+  }
+}

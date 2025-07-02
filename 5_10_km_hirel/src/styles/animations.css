@@ -1,0 +1,470 @@
+/* Animations et classes utilitaires d'animation - VERSION SYNCHRONISÉE PARFAITE */
+
+/* === KEYFRAMES EXISTANTES (optimisées) === */
+@keyframes fade-in { 
+  from { opacity: 0; transform: translateY(30px); } 
+  to { opacity: 1; transform: translateY(0); } 
+}
+
+@keyframes zoom-in { 
+  from { opacity: 0; transform: scale(0.8); } 
+  to { opacity: 1; transform: scale(1); } 
+}
+
+@keyframes slide-in-left { 
+  from { opacity: 0; transform: translateX(-50px); } 
+  to { opacity: 1; transform: translateX(0); } 
+}
+
+@keyframes slide-in-right { 
+  from { opacity: 0; transform: translateX(50px); } 
+  to { opacity: 1; transform: translateX(0); } 
+}
+
+@keyframes rotate-360 { 
+  from { transform: rotate(0deg); } 
+  to { transform: rotate(360deg); } 
+}
+
+@keyframes pulse-scale { 
+  0%, 100% { transform: scale(1); } 
+  50% { transform: scale(1.05); } 
+}
+
+@keyframes shimmer { 
+  0% { background-position: -200% 0; } 
+  100% { background-position: 200% 0; } 
+}
+
+@keyframes float { 
+  0%, 100% { transform: translateY(0px); } 
+  50% { transform: translateY(-10px); } 
+}
+
+@keyframes bounce-in { 
+  0% { opacity: 0; transform: scale(0.5); } 
+  50% { opacity: 1; transform: scale(1.1); } 
+  100% { opacity: 1; transform: scale(1); } 
+}
+
+/* === NOUVELLES KEYFRAMES ULTRA-FLUIDES === */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUpFast {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleUpFast {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes bounceSubtle {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-6px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleInBounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes iconBounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes cardFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px rgba(255, 209, 102, 0.3);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(255, 209, 102, 0.6);
+  }
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* === CLASSES D'ANIMATION EXISTANTES === */
+.animate-fade-in { 
+  animation: fade-in 0.6s ease-out forwards; 
+  opacity: 0; 
+}
+
+.animate-zoom-in { 
+  animation: zoom-in 0.4s ease-out forwards; 
+  opacity: 0; 
+}
+
+.animate-slide-in-left { 
+  animation: slide-in-left 0.5s ease-out forwards; 
+  opacity: 0; 
+}
+
+.animate-slide-in-right { 
+  animation: slide-in-right 0.5s ease-out forwards; 
+  opacity: 0; 
+}
+
+.animate-bounce-in { 
+  animation: bounce-in 0.4s ease-out forwards; 
+  opacity: 0; 
+}
+
+.animate-float { 
+  animation: float 3s ease-in-out infinite; 
+}
+
+.animate-pulse-scale { 
+  animation: pulse-scale 2s ease-in-out infinite; 
+}
+
+.animate-rotate { 
+  animation: rotate-360 2s linear infinite; 
+}
+
+/* === 🎯 NOUVELLES CLASSES D'ANIMATION SYNCHRONISÉES === */
+/* TOUTES LES ANIMATIONS ONT LE MÊME DÉLAI : 0.08s */
+
+.animate-slide-up {
+  animation: slideUp 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.08s; /* ← DÉLAI GLOBAL SYNCHRONISÉ */
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.animate-slide-up-fast {
+  animation: slideUpFast 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.08s; /* ← DÉLAI GLOBAL SYNCHRONISÉ */
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.animate-scale-up-fast {
+  animation: scaleUpFast 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.08s; /* ← DÉLAI GLOBAL SYNCHRONISÉ */
+  opacity: 0;
+  transform: scale(0.98);
+}
+
+.animate-bounce-subtle {
+  animation: bounceSubtle 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.08s; /* ← DÉLAI GLOBAL SYNCHRONISÉ */
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.35s ease-out forwards;
+  animation-delay: 0.08s; /* ← DÉLAI GLOBAL SYNCHRONISÉ */
+  opacity: 0;
+}
+
+.animate-scale-in-bounce {
+  animation: scaleInBounce 0.25s ease-out forwards;
+  animation-delay: 0.08s; /* ← DÉLAI GLOBAL SYNCHRONISÉ */
+  opacity: 0;
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 0.2s ease-out forwards;
+  animation-delay: 0.08s; /* ← DÉLAI GLOBAL SYNCHRONISÉ */
+  opacity: 0;
+}
+
+.animate-icon-bounce {
+  animation: iconBounce 0.4s ease-in-out;
+  animation-delay: 0.08s; /* ← DÉLAI GLOBAL SYNCHRONISÉ */
+}
+
+.animate-card-float {
+  animation: cardFloat 3s ease-in-out infinite;
+}
+
+/* === 🚫 DÉLAIS DÉSACTIVÉS (commentés pour éviter les conflits) === */
+/*
+⚠️ CES CLASSES SONT DÉSACTIVÉES POUR ÉVITER LES CONFLITS DE DÉLAIS
+Utilisez .sync-custom si vous voulez un délai spécifique
+
+.delay-0 { animation-delay: 0s; }
+.delay-25 { animation-delay: 0.025s; }
+.delay-50 { animation-delay: 0.05s; }
+.delay-75 { animation-delay: 0.075s; }
+.delay-100 { animation-delay: 0.1s; }
+.delay-125 { animation-delay: 0.125s; }
+.delay-150 { animation-delay: 0.15s; }
+.delay-175 { animation-delay: 0.175s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-225 { animation-delay: 0.225s; }
+.delay-250 { animation-delay: 0.25s; }
+.delay-275 { animation-delay: 0.275s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-325 { animation-delay: 0.325s; }
+.delay-375 { animation-delay: 0.375s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-450 { animation-delay: 0.45s; }
+.delay-475 { animation-delay: 0.475s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-525 { animation-delay: 0.525s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+.delay-1000 { animation-delay: 1s; }
+*/
+
+/* === 🎛️ CLASSES UTILITAIRES POUR OVERRIDE === */
+.sync-all {
+  animation-delay: 0.08s !important; /* Force le délai global */
+}
+
+.sync-instant {
+  animation-delay: 0s !important; /* Pas de délai */
+}
+
+.sync-fast {
+  animation-delay: 0.03s !important; /* Très rapide */
+}
+
+.sync-slow {
+  animation-delay: 0.15s !important; /* Plus lent */
+}
+
+/* Délais personnalisés (usage rare et contrôlé) */
+.sync-custom-50 { animation-delay: 0.05s !important; }
+.sync-custom-100 { animation-delay: 0.1s !important; }
+.sync-custom-150 { animation-delay: 0.15s !important; }
+.sync-custom-200 { animation-delay: 0.2s !important; }
+
+/* === CLASSES UTILITAIRES POUR ANIMATIONS === */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-auto {
+  will-change: auto;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.transform-gpu {
+  transform: translateZ(0);
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* === ANIMATIONS HOVER ULTRA-RESPONSIVES === */
+.hover-lift {
+  transition: transform 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+}
+
+.hover-scale {
+  transition: transform 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+.hover-lift-scale {
+  transition: all 0.12s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hover-lift-scale:hover {
+  transform: translateY(-3px) scale(1.02);
+}
+
+.hover-glow {
+  transition: all 0.2s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(66, 153, 225, 0.4);
+}
+
+/* === ANIMATIONS SPÉCIALES === */
+.animate-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* === ANIMATIONS AU SCROLL (optimisées) === */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-animate.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === CLASSES COMBINÉES ULTRA-OPTIMISÉES === */
+.card-enter {
+  opacity: 0;
+  transform: translateY(12px) scale(0.98);
+  animation: cardEnter 0.3s ease-out forwards;
+  animation-delay: 0.08s; /* ← DÉLAI GLOBAL SYNCHRONISÉ */
+}
+
+.card-enter-fast {
+  opacity: 0;
+  transform: translateY(8px) scale(0.99);
+  animation: cardEnter 0.2s ease-out forwards;
+  animation-delay: 0.08s; /* ← DÉLAI GLOBAL SYNCHRONISÉ */
+}
+
+/* === ANIMATIONS POUR MOBILE === */
+@media (max-width: 768px) {
+  .animate-slide-up-fast,
+  .animate-scale-up-fast,
+  .animate-bounce-subtle {
+    animation-duration: 0.12s; /* Plus rapide sur mobile */
+    animation-delay: 0.05s; /* Délai réduit sur mobile */
+  }
+  
+  .hover-lift:hover,
+  .hover-lift-scale:hover {
+    transform: translateY(-2px) scale(1.01);
+  }
+  
+  .sync-all {
+    animation-delay: 0.05s !important; /* Override pour mobile */
+  }
+}
+
+/* === RÉDUCTION DES ANIMATIONS POUR ACCESSIBILITÉ === */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+  }
+  
+  .animate-float,
+  .animate-pulse-scale,
+  .animate-rotate,
+  .animate-card-float,
+  .animate-glow {
+    animation: none !important;
+  }
+  
+  .hover-lift:hover,
+  .hover-scale:hover,
+  .hover-lift-scale:hover {
+    transform: none !important;
+  }
+}
+
+/* === ANIMATIONS DE PERFORMANCE === */
+@media (prefers-reduced-data: reduce) {
+  .animate-shimmer,
+  .animate-glow {
+    animation: none !important;
+  }
+}
+
+/* === 🐛 DEBUG CLASS (à supprimer en production) === */
+.debug-sync {
+  border: 2px solid red !important;
+  animation: debugPulse 1s infinite !important;
+}
+
+@keyframes debugPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import VideoCarousel from './assets/components/VideoCarousel';
 import VideoCard from './assets/components/VideoCard';
 import VideoPlayer from './assets/components/VideoPlayer';
+import Header from './assets/components/Header';
+import Footer from './assets/components/Footer';
 
 /**
  * Page d'accueil du 5&10km d'Hirel.
@@ -112,6 +114,7 @@ const Accueil = () => {
 
   return (
     <>
+      <Header />
       <main className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
         
         {/* Section Hero avec l'affiche */}
@@ -197,7 +200,9 @@ const Accueil = () => {
           </div>
         </section>
 
-        {/* Section Description détaillée */}
+        Voici la section corrigée avec animations fluides et chaussettes personnalisées :
+
+        {/* Section Description détaillée - ANIMATIONS OPTIMISÉES */}
         <section className="py-32 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">
             
@@ -214,21 +219,21 @@ const Accueil = () => {
               </div>
             </div>
 
-            {/* Grille des caractéristiques avec icônes */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+            {/* Grille des avantages - ANIMATIONS RAPIDES ET FLUIDES */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
               
-              {/* Parcours plat */}
-              <div className="bg-gradient-to-br from-[color:var(--color-vert)]/5 to-[color:var(--color-vert)]/10 rounded-2xl p-8 text-center transform hover:scale-105 transition-all duration-300 animate-zoom-in delay-200">
-                <div className="text-5xl mb-4">🏃‍♂️</div>
+              {/* Parcours plat - Animation rapide */}
+              <div className="bg-gradient-to-br from-[color:var(--color-vert)]/5 to-[color:var(--color-vert)]/10 rounded-2xl p-8 text-center transform hover:scale-105 hover:-translate-y-2 transition-all duration-200 animate-slide-up">
+                <div className="text-5xl mb-4 animate-bounce-subtle">🏃‍♂️</div>
                 <h3 className="text-xl font-bold text-[color:var(--color-vert)] mb-4">Parcours 100% plat</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Fini les côtes qui tuent ! 🙃 Ici, c'est <strong>du plat sur du plat</strong>. Parfait pour améliorer ses temps ou découvrir la course à pied sans craindre les montées interminables.
                 </p>
               </div>
 
-              {/* Ambiance authentique */}
-              <div className="bg-gradient-to-br from-[color:var(--color-bleu)]/5 to-[color:var(--color-bleu)]/10 rounded-2xl p-8 text-center transform hover:scale-105 transition-all duration-300 animate-zoom-in delay-300">
-                <div className="text-5xl mb-4">🌾</div>
+              {/* Ambiance authentique - Délai minimal */}
+              <div className="bg-gradient-to-br from-[color:var(--color-bleu)]/5 to-[color:var(--color-bleu)]/10 rounded-2xl p-8 text-center transform hover:scale-105 hover:-translate-y-2 transition-all duration-200 animate-slide-up">
+                <div className="text-5xl mb-4 animate-bounce-subtle delay-75">🌾</div>
                 <h3 className="text-xl font-bold text-[color:var(--color-bleu)] mb-4">Campagne authentique</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Courez à travers champs et petites routes de campagne. <strong>Loin du bitume et des voitures</strong>, c'est la nature qui vous accompagne avec ses parfums et ses couleurs.
@@ -236,17 +241,17 @@ const Accueil = () => {
               </div>
 
               {/* Proximité baie */}
-              <div className="bg-gradient-to-br from-[color:var(--color-jaune)]/10 to-[color:var(--color-jaune)]/20 rounded-2xl p-8 text-center transform hover:scale-105 transition-all duration-300 animate-zoom-in delay-400">
-                <div className="text-5xl mb-4">🌊</div>
-                                <h3 className="text-xl font-bold text-[color:var(--color-jaune)] mb-4">Baie du Mont Saint-Michel</h3>
+              <div className="bg-gradient-to-br from-[color:var(--color-jaune)]/10 to-[color:var(--color-jaune)]/20 rounded-2xl p-8 text-center transform hover:scale-105 hover:-translate-y-2 transition-all duration-200 animate-slide-up">
+                <div className="text-5xl mb-4 animate-bounce-subtle delay-150">🌊</div>
+                <h3 className="text-xl font-bold text-[color:var(--color-jaune)] mb-4">Baie du Mont Saint-Michel</h3>
                 <p className="text-gray-600 leading-relaxed">
                   À deux pas de ce <strong>joyau du patrimoine mondial</strong> ! L'air marin et les paysages emblématiques de la baie vous donneront des ailes.
                 </p>
               </div>
 
               {/* Convivialité */}
-              <div className="bg-gradient-to-br from-pink-100 to-pink-200 rounded-2xl p-8 text-center transform hover:scale-105 transition-all duration-300 animate-zoom-in delay-500">
-                <div className="text-5xl mb-4">🤝</div>
+              <div className="bg-gradient-to-br from-pink-100 to-pink-200 rounded-2xl p-8 text-center transform hover:scale-105 hover:-translate-y-2 transition-all duration-200 animate-slide-up">
+                <div className="text-5xl mb-4 animate-bounce-subtle delay-225">🤝</div>
                 <h3 className="text-xl font-bold text-pink-600 mb-4">Esprit familial</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Première édition = ambiance <strong>décontractée et bienveillante</strong> ! Que vous soyez débutant ou confirmé, l'objectif c'est de passer un super moment ensemble.
@@ -254,40 +259,38 @@ const Accueil = () => {
               </div>
 
               {/* Organisation locale */}
-              <div className="bg-gradient-to-br from-orange-100 to-orange-200 rounded-2xl p-8 text-center transform hover:scale-105 transition-all duration-300 animate-zoom-in delay-600">
-                <div className="text-5xl mb-4">🏘️</div>
+              <div className="bg-gradient-to-br from-orange-100 to-orange-200 rounded-2xl p-8 text-center transform hover:scale-105 hover:-translate-y-2 transition-all duration-200 animate-slide-up">
+                <div className="text-5xl mb-4 animate-bounce-subtle delay-300">🏘️</div>
                 <h3 className="text-xl font-bold text-orange-600 mb-4">Organisé localement</h3>
                 <p className="text-gray-600 leading-relaxed">
                   Par des passionnés du coin qui connaissent <strong>chaque recoin du territoire</strong>. De l'amour du terroir dans chaque détail de l'organisation !
                 </p>
               </div>
 
-              {/* Prix accessible */}
-              <div className="bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl p-8 text-center transform hover:scale-105 transition-all duration-300 animate-zoom-in delay-700">
-                <div className="text-5xl mb-4">💰</div>
-                <h3 className="text-xl font-bold text-purple-600 mb-4">Prix accessible</h3>
+              {/* 🧦 CHAUSSETTES PERSONNALISÉES - Remplace "Prix accessible" */}
+              <div className="bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl p-8 text-center transform hover:scale-105 hover:-translate-y-2 transition-all duration-200 animate-slide-up">
+                <div className="text-5xl mb-4 animate-bounce-subtle delay-375">🧦</div>
+                <h3 className="text-xl font-bold text-purple-600 mb-4">Chaussettes offertes !</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Pas de tarifs prohibitifs ici ! <strong>Course accessible</strong> pour que le plaisir de courir ne soit pas un luxe. Priorité au sport et à la convivialité.
+                  Tous les coureurs repartent avec des <strong>chaussettes personnalisées</strong> aux couleurs de l'événement ! Un souvenir utile et stylé de votre première participation.
                 </p>
               </div>
             </div>
 
             {/* Call-to-action principal */}
-            <div className="text-center animate-fade-in delay-800">
-              <div className="bg-gradient-to-r from-[color:var(--color-bleu)]/5 to-[color:var(--color-vert)]/5 rounded-3xl p-12 border border-[color:var(--color-bleu)]/20">
+            <div className="text-center animate-fade-in delay-500">
+              <div className="bg-gradient-to-r from-[color:var(--color-bleu)]/10 to-[color:var(--color-vert)]/10 rounded-3xl p-12 mx-auto max-w-4xl">
                 <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
-                  Alors, prêt(e) à découvrir Hirel autrement ? 🏃‍♀️✨
+                  🎯 Alors, prêt(e) pour l'aventure ?
                 </h3>
-                <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                  Rejoignez-nous pour cette première édition qui promet d'être <strong>mémorable</strong> ! 
-                  Inscription simple, ambiance garantie, souvenirs assurés.
+                <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+                  Rejoignez-nous pour cette première édition qui promet d'être mémorable ! Places limitées pour préserver l'esprit convivial.
                 </p>
-                <button className="btn-primary text-xl px-10 py-5 rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
-                  🎉 Je participe à l'aventure !
+                <button className="btn-primary text-xl px-12 py-4 rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-200">
+                  🏃‍♀️ Je réserve ma place maintenant !
                 </button>
               </div>
             </div>
-
           </div>
         </section>
 
@@ -441,7 +444,7 @@ const Accueil = () => {
         </section>
 
       </main>
-
+      <Footer />
       {/* Modal de lecture vidéo - OPTIMISÉE FORMAT VERTICAL */}
       {showVideoModal && selectedVideo && (
         <div className="fixed inset-0 z-50 bg-black bg-opacity-95 flex items-center justify-center p-4 modal-overlay">

@@ -1,0 +1,30 @@
+/* Styles spécifiques aux composants vidéo (carte, carrousel, player) */
+.video-card {
+  transition: all var(--transition-medium);
+  transform-origin: center;
+  backface-visibility: hidden;
+}
+.video-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px var(--color-shadow);
+}
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+.carousel-container { position: relative; overflow: hidden; }
+.carousel-slide { transition: transform var(--transition-slow); }
+.carousel-controls { transition: all var(--transition-fast); }
+.carousel-controls:hover { transform: scale(1.1); background-color: var(--color-bleu); }
+.carousel-indicator { width: 12px; height: 12px; border-radius: 50%; transition: all var(--transition-fast); cursor: pointer; }
+.carousel-indicator.active { background-color: var(--color-bleu); transform: scale(1.3); }
+.carousel-indicator:not(.active) { background-color: rgba(42,63,84,0.3); }
+.carousel-indicator:hover:not(.active) { background-color: rgba(42,63,84,0.6); transform: scale(1.15); }
+.video-player { position: relative; background-color: #000; border-radius: 12px; overflow: hidden; }
+.video-controls { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7)); padding: 20px; transform: translateY(100%); transition: transform var(--transition-medium); }
+.video-player:hover .video-controls, .video-controls:focus-within { transform: translateY(0); }
+.progress-bar { height: 4px; background-color: rgba(255,255,255,0.3); border-radius: 2px; overflow: hidden; cursor: pointer; }
+.progress-fill { height: 100%; background-color: var(--color-jaune); border-radius: 2px; transition: width var(--transition-fast); }
+.volume-slider { width: 80px; height: 4px; background-color: rgba(255,255,255,0.3); border-radius: 2px; cursor: pointer; }
+.volume-fill { height: 100%; background-color: #fff; border-radius: 2px; transition: width var(--transition-fast); }

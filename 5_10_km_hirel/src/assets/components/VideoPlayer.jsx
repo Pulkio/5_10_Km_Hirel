@@ -64,7 +64,7 @@ const VideoPlayer = ({
       {/* On limite la hauteur max à 70vh pour éviter de coller aux bords */}
       <video
         ref={videoRef}
-        className={`h-full mx-auto video-no-focus ${isVertical ? 'aspect-[9/16] object-contain vertical-video-player' : 'aspect-video object-cover'}`}
+        className={`h-full mx-auto video-no-focus rounded-2xl ${isVertical ? 'aspect-[9/16] object-contain vertical-video-player' : 'aspect-video object-cover'}`}
         style={isVertical
           ? { aspectRatio: '9/16', maxHeight: '70vh', height: '70vh', width: 'auto', background: 'none', border: 'none', boxShadow: 'none', display: 'block' }
           : { aspectRatio: '16/9', width: '100%', background: 'none', border: 'none', boxShadow: 'none', display: 'block' }}

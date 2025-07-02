@@ -87,21 +87,21 @@ const VideoCard = ({
         overflow-hidden bg-gray-900
       `}>
         
-        {/* Image de prévisualisation */}
-        <img 
-          src={poster}
-          alt={`Aperçu de ${title}`}
-          className={`
-            w-full h-full transition-all duration-500 group-hover:scale-110
-            ${isVertical 
-              ? 'object-cover object-center' 
-              : 'object-cover'
-            }
-          `}
-          loading="lazy"
-          draggable="false"                   // ✅ Empêche le drag de l'image
-          onDragStart={handleDragStart}      // ✅ Double sécurité anti-drag
-        />
+        {/* Vidéo de prévisualisation (première frame) */}
+        <video
+          src={mp4Source}
+          poster={poster}
+          preload="metadata"
+          muted
+          playsInline
+          tabIndex={-1}
+          className={`w-full h-full transition-all duration-500 group-hover:scale-110 pointer-events-none select-none ${isVertical ? 'object-cover object-center' : 'object-cover'}`}
+          style={{display: 'block'}}
+          onLoadedData={e => { try { e.target.currentTime = 0.1; } catch {} }}
+        >
+          {webmSource && <source src={webmSource} type="video/webm" />}
+          <source src={mp4Source} type="video/mp4" />
+        </video>
 
         {/* Overlay sombre au hover */}
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300" />

@@ -49,7 +49,7 @@ export default function FadeVideoPlayer({ video }) {
           ref={videoRef}
           {...(showControls ? { controls: true } : {})}
           {...(currentVideo.poster ? { poster: currentVideo.poster } : {})}
-          className={`h-full mx-auto video-no-focus ${currentVideo.isVertical ? 'aspect-[9/16] object-contain vertical-video-player' : 'aspect-video object-cover'}`}
+          className={`h-full mx-auto video-no-focus rounded-2xl ${currentVideo.isVertical ? 'aspect-[9/16] object-contain vertical-video-player' : 'aspect-video object-cover'}`}
           tabIndex={-1}
           autoFocus={false}
           preload="metadata"

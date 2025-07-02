@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Accueil from './Accueil';
 import InfosPratiques from './InfosPratiques';
 import PhotosResultats from './PhotosResultats';
+import Remerciements from './Remerciements';
 import './index.css';
 
 // Point d'entrée de l'application avec routage
@@ -15,6 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="/" element={<Accueil />} />
         <Route path="/infos" element={<InfosPratiques />} />
         <Route path="/photos" element={<PhotosResultats />} />
+        <Route path="/partenaires" element={<Remerciements />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

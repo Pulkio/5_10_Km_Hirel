@@ -25,6 +25,9 @@ const VideoPlayer = ({
     const video = videoRef.current;
     if (!video) return;
 
+    // Régle le volume par défaut à 0.3
+    video.volume = 0.3;
+
     // 🎯 Configuration pour vidéo verticale
     if (autoplay) {
       const playPromise = video.play();

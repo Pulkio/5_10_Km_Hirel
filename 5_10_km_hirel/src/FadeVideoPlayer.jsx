@@ -57,12 +57,16 @@ export default function FadeVideoPlayer({ video }) {
           style={currentVideo.isVertical ? { aspectRatio: '9/16', maxHeight: '70vh', height: '70vh', width: 'auto', background: 'none', border: 'none', boxShadow: 'none', display: 'block' } : { aspectRatio: '16/9', width: '100%', background: 'none', border: 'none', boxShadow: 'none', display: 'block' }}
           onLoadStart={() => {
             if (videoRef.current) {
+              videoRef.current.volume = 0.3;
+            }
+            if (videoRef.current) {
               videoRef.current.blur();
             }
           }}
           onCanPlay={() => {
             if (videoRef.current) {
               videoRef.current.blur();
+              videoRef.current.volume = 0.3;
             }
           }}
           onFocus={e => { e.target.blur(); }}

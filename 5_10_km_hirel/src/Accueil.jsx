@@ -201,8 +201,6 @@ const Accueil = () => {
           </div>
         </section>
 
-        Voici la section corrigée avec animations fluides et chaussettes personnalisées :
-
         {/* Section Description détaillée - ANIMATIONS OPTIMISÉES */}
         <section className="py-32 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-8">

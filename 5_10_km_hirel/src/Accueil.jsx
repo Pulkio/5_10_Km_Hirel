@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import FadeVideoPlayer from './FadeVideoPlayer';
 import VideoCarousel from './assets/components/VideoCarousel';
 import VideoCard from './assets/components/VideoCard';
 import VideoPlayer from './assets/components/VideoPlayer';
@@ -350,25 +351,7 @@ const Accueil = () => {
               
               {/* 🎯 Lecteur vidéo principal (affiche la vidéo sélectionnée) */}
               {activeCarouselVideo && (
-                <div className="mb-10 flex justify-center">
-                  <video
-                    key={activeCarouselVideo.id}
-                    controls
-                    poster={activeCarouselVideo.poster}
-                    className="w-full max-w-md rounded-2xl shadow-2xl bg-black"
-                  >
-                    <source src={activeCarouselVideo.webmSource} type="video/webm" />
-                    <source src={activeCarouselVideo.mp4Source} type="video/mp4" />
-                    <div className="flex items-center justify-center h-full bg-gray-100">
-                      <div className="text-center p-6">
-                        <div className="text-4xl mb-4">📹</div>
-                        <p className="text-gray-700 font-medium mb-2">Votre navigateur ne supporte pas la lecture vidéo.</p>
-                        <p className="text-gray-500 text-sm">Veuillez utiliser un navigateur plus récent ou télécharger la vidéo.</p>
-                        <a href={activeCarouselVideo.mp4Source} download className="mt-4 inline-flex items-center px-4 py-2 bg-[color:var(--color-bleu)] text-white rounded-lg hover:bg-[color:var(--color-bleu)]/90 transition-colors duration-200">📥 Télécharger la vidéo</a>
-                      </div>
-                    </div>
-                  </video>
-                </div>
+                <FadeVideoPlayer video={activeCarouselVideo} />
               )}
 
               {/* 🎯 Grille des vidéos (filtrées ou complètes) */}
@@ -379,69 +362,41 @@ const Accueil = () => {
                     <button
                       key={video.id}
                       type="button"
-                      onClick={() => setActiveCarouselVideo(video)}
+                      tabIndex={-1}
+                      onMouseDown={e => e.preventDefault()}
+                      onClick={e => {
+                        e.preventDefault();
+                        if (!isActive) setActiveCarouselVideo(video);
+                      }}
                       className={`relative flex-shrink-0 group transition-all duration-300 scale-90 opacity-60 hover:opacity-80 hover:scale-95 animate-fade-in delay-${index * 100 + 400} w-full focus:outline-none rounded-2xl ${
                         isActive ? 'ring-2 ring-[color:var(--color-jaune)] ring-opacity-70 scale-100 opacity-100 z-10' : ''
                       }`}
                       aria-label={`Sélectionner la vidéo ${video.title}`}
                     >
-                    <VideoCard
-                      title={video.title}
-                      description={video.description}
-                      mp4Source={video.mp4Source}
-                      webmSource={video.webmSource}
-                      poster={video.poster}
-                      category={video.category}
-                      date={video.date}
-                      duration={video.duration}
-                      isVertical={video.isVertical}
-                      onPlay={() => setActiveCarouselVideo(video)}
-                      isActive={isActive}
-                    />
+                      <VideoCard
+                        title={video.title}
+                        description={video.description}
+                        mp4Source={video.mp4Source}
+                        webmSource={video.webmSource}
+                        poster={video.poster}
+                        category={video.category}
+                        date={video.date}
+                        duration={video.duration}
+                        isVertical={video.isVertical}
+                        onPlay={() => setActiveCarouselVideo(video)}
+                        isActive={isActive}
+                      />
                     </button>
                   );
                 })}
-              </div>
 
-              {/* Call-to-action en fin de section */}
-              <div className="text-center mt-12">
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/20 inline-block">
-                  <p className="text-gray-600 mb-4">
-                    🎥 Vous avez des vidéos de l'événement à partager ?
-                  </p>
-                  <button className="btn-primary px-6 py-3 rounded-xl">
-                    📤 Envoyer mes vidéos
-                  </button>
-                </div>
               </div>
 
             </div>
           </div>
         </section>
 
-        {/* Section Newsletter */}
-        <section className="py-20 bg-gradient-to-r from-[color:var(--color-bleu)] to-[color:var(--color-vert)]">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center text-white">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                📧 Restez dans la course !
-              </h2>
-              <p className="text-xl mb-8 opacity-90">
-                Inscrivez-vous à notre newsletter pour ne rien rater des actus du 5&10km d'Hirel
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="Votre email"
-                  className="flex-1 px-6 py-3 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white"
-                />
-                <button className="px-8 py-3 bg-white text-[color:var(--color-bleu)] rounded-xl font-semibold hover:bg-gray-100 transition-colors">
-                  S'abonner
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
+      
 
       </main>
       <Footer />

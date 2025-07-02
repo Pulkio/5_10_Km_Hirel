@@ -1,4 +1,4 @@
-/* Animations et classes utilitaires d'animation - VERSION SYNCHRONISÉE PARFAITE */
+/* Animations et classes utilitaires d'animation - VERSION SYNCHRONISÉE PARFAITE + ANTI-SCROLL */
 
 /* === KEYFRAMES EXISTANTES (optimisées) === */
 @keyframes fade-in { 
@@ -261,6 +261,42 @@
   animation: cardFloat 3s ease-in-out infinite;
 }
 
+/* === 🚫 CONTRÔLE DU SCROLL AUTOMATIQUE === */
+/* Empêche le scroll automatique lors du changement de vidéo */
+html {
+  scroll-behavior: smooth; /* Normal pour la navigation */
+}
+
+/* ANTI-SCROLL pour les éléments vidéo et interactifs */
+video, 
+video:focus,
+video:target,
+audio,
+audio:focus,
+audio:target,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  scroll-behavior: auto !important;          /* Empêche le scroll automatique */
+  scroll-margin: 0 !important;              /* Supprime les marges de scroll */
+  scroll-snap-margin: 0 !important;         /* Supprime le snap scroll */
+}
+
+/* Supprime l'outline qui pourrait déclencher un scroll */
+video:focus,
+audio:focus {
+  outline: none !important;
+  outline-offset: 0 !important;
+}
+
+/* Force le comportement sans scroll sur les médias */
+video[tabindex="-1"],
+audio[tabindex="-1"] {
+  outline: none !important;
+  scroll-behavior: auto !important;
+}
+
 /* === 🚫 DÉLAIS DÉSACTIVÉS (commentés pour éviter les conflits) === */
 /*
 ⚠️ CES CLASSES SONT DÉSACTIVÉES POUR ÉVITER LES CONFLITS DE DÉLAIS
@@ -314,6 +350,24 @@ Utilisez .sync-custom si vous voulez un délai spécifique
 .sync-custom-100 { animation-delay: 0.1s !important; }
 .sync-custom-150 { animation-delay: 0.15s !important; }
 .sync-custom-200 { animation-delay: 0.2s !important; }
+
+/* === 🎯 CLASSES ANTI-SCROLL SPÉCIFIQUES === */
+.no-scroll-behavior {
+  scroll-behavior: auto !important;
+  scroll-margin: 0 !important;
+  scroll-snap-margin: 0 !important;
+}
+
+.video-no-focus {
+  outline: none !important;
+  outline-offset: 0 !important;
+  scroll-behavior: auto !important;
+}
+
+.media-container {
+  contain: layout style paint;           /* Isolement CSS pour les performances */
+  scroll-behavior: auto !important;      /* Force le comportement sans scroll */
+}
 
 /* === CLASSES UTILITAIRES POUR ANIMATIONS === */
 .will-change-transform {
@@ -447,6 +501,11 @@ Utilisez .sync-custom si vous voulez un délai spécifique
   .hover-scale:hover,
   .hover-lift-scale:hover {
     transform: none !important;
+  }
+  
+  /* Force l'anti-scroll même avec animations réduites */
+  video, audio, video:focus, audio:focus {
+    scroll-behavior: auto !important;
   }
 }
 

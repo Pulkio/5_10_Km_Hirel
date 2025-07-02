@@ -35,6 +35,13 @@ const VideoPlayer = ({
       }
     }
 
+    // Empêche le focus natif qui provoque le scroll
+    setTimeout(() => {
+      if (video && typeof video.blur === 'function') {
+        video.blur();
+      }
+    }, 0);
+
     // Gestion de l'erreur de chargement
     const handleError = (e) => {
       console.error("Erreur de chargement vidéo:", e);
@@ -49,23 +56,23 @@ const VideoPlayer = ({
 
   return (
     <div className={`
-      relative w-full bg-black flex items-center justify-center
+      relative w-full flex items-center justify-center
       ${isVertical 
-        ? 'aspect-[9/16] max-h-[70vh]' // 📱 Format smartphone avec hauteur max
-        : 'aspect-video'                // 🖥️ Format classique
+        ? 'aspect-[9/16] max-h-[70vh] h-[70vh] vertical-video-player p-2 md:p-4'
+        : 'aspect-video p-2 md:p-4'
       }
-    `}>
+    `} style={{background: 'transparent'}}>
+      {/* On limite la hauteur max à 70vh pour éviter de coller aux bords */}
       <video
         ref={videoRef}
-        className={`
-          w-full h-full object-contain
-          ${isVertical ? 'max-w-none' : ''}
-        `}
+        className={`w-full h-full ${isVertical ? 'object-contain vertical-video-player bg-black' : 'object-cover bg-black'} rounded-2xl shadow-2xl video-no-focus`}
         poster={poster}
         controls
         preload="metadata"
         aria-label={`Lecture de la vidéo: ${title}`}
         playsInline // 🎯 Important pour mobile
+        tabIndex={-1}
+        autoFocus={false}
       >
         {/* Source WebM pour une meilleure compression */}
         {webmSource && (

@@ -3,6 +3,7 @@ import React from 'react';
 /**
  * Composant VideoCard pour afficher un aperçu vidéo.
  * Optimisé pour les formats vertical (smartphone) et horizontal.
+ * VERSION ANTI-SCROLL - Empêche le scroll automatique lors du clic
  * @param {Object} props - Les propriétés du composant
  * @param {string} props.title - Titre de la vidéo
  * @param {string} props.description - Description de la vidéo
@@ -24,20 +25,60 @@ const VideoCard = ({
   category,
   date,
   duration,
-  isVertical = false, // 🎯 NOUVEAU : gestion du format
+  isVertical = false,
   onPlay
 }) => {
+  
+  // ✅ Gestionnaire de clic anti-scroll
+  const handleClick = (e) => {
+    e.preventDefault();           // Empêche le comportement par défaut
+    e.stopPropagation();         // Empêche la propagation de l'événement
+    
+    // ✅ Sauvegarde la position de scroll actuelle
+    const currentScrollY = window.scrollY;
+    
+    // ✅ Exécute la fonction onPlay
+    if (onPlay) {
+      onPlay();
+    }
+    
+    // ✅ Force la position de scroll à rester identique
+    // Utilise requestAnimationFrame pour s'assurer que cela se produit après le rendu
+    requestAnimationFrame(() => {
+      window.scrollTo({
+        top: currentScrollY,
+        behavior: 'auto'        // Pas de scroll fluide, immédiat
+      });
+    });
+  };
+
+  // ✅ Gestionnaire pour empêcher le drag qui peut causer des scrolls
+  const handleDragStart = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div 
       className={`
         group relative bg-white rounded-2xl shadow-lg overflow-hidden 
         hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer
+        no-scroll-behavior                    // ✅ Classe CSS anti-scroll
         ${isVertical 
-          ? 'aspect-[9/16]' // 🎯 Ratio smartphone (9:16)
-          : 'aspect-video'   // Ratio classique (16:9)
+          ? 'aspect-[9/16]' 
+          : 'aspect-video'
         }
       `}
-      onClick={onPlay}
+      onClick={handleClick}                   // ✅ Gestionnaire anti-scroll
+      onDragStart={handleDragStart}          // ✅ Empêche le drag
+      role="button"                          // ✅ Accessibilité
+      tabIndex={0}                           // ✅ Navigation clavier
+      onKeyDown={(e) => {                    // ✅ Support clavier
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleClick(e);
+        }
+      }}
+      aria-label={`Voir la vidéo: ${title}`} // ✅ Accessibilité
     >
       {/* Container vidéo avec aspect ratio adapté */}
       <div className={`
@@ -53,11 +94,13 @@ const VideoCard = ({
           className={`
             w-full h-full transition-all duration-500 group-hover:scale-110
             ${isVertical 
-              ? 'object-cover object-center' // 📱 Pour format vertical
-              : 'object-cover'               // 🖥️ Pour format horizontal
+              ? 'object-cover object-center' 
+              : 'object-cover'
             }
           `}
           loading="lazy"
+          draggable="false"                   // ✅ Empêche le drag de l'image
+          onDragStart={handleDragStart}      // ✅ Double sécurité anti-drag
         />
 
         {/* Overlay sombre au hover */}
@@ -66,7 +109,12 @@ const VideoCard = ({
         {/* Bouton play central */}
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
           <div className="w-16 h-16 lg:w-20 lg:h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-all duration-300">
-            <svg className="w-8 h-8 lg:w-10 lg:h-10 text-[color:var(--color-bleu)] ml-1" fill="currentColor" viewBox="0 0 24 24">
+            <svg 
+              className="w-8 h-8 lg:w-10 lg:h-10 text-[color:var(--color-bleu)] ml-1" 
+              fill="currentColor" 
+              viewBox="0 0 24 24"
+              pointerEvents="none"            // ✅ Empêche les interactions sur l'icône
+            >
               <path d="M8 5v14l11-7z"/>
             </svg>
           </div>
@@ -115,7 +163,13 @@ const VideoCard = ({
         <div className={`flex items-center justify-between text-xs ${isVertical ? 'text-gray-300' : 'text-gray-500'}`}>
           <span>{date}</span>
           <span className="flex items-center space-x-1">
-            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg 
+              className="w-3 h-3" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+              pointerEvents="none"          // ✅ Empêche les interactions sur l'icône
+            >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-5-10V3m0 6V3"/>
             </svg>
             <span>Cliquer pour voir</span>

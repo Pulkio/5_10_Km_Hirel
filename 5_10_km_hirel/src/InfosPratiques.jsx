@@ -59,7 +59,7 @@ const InfosPratiques = () => {
                       <div className="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm border border-gray-100">
                         <span className="font-semibold text-gray-800">Samedi 2 août</span>
                         <span className="px-4 py-2 bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-semibold rounded-lg group-hover:from-orange-500 group-hover:to-red-500 transition-all duration-300">
-                          15h à 18h
+                          15h à 19h30
                         </span>
                       </div>
                       <div className="flex items-center justify-between p-4 bg-white rounded-lg shadow-sm border border-gray-100">

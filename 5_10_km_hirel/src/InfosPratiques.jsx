@@ -247,15 +247,15 @@ const InfosPratiques = () => {
                 <div className="text-center mb-8">
                   <h3 className="text-3xl font-bold text-gray-800 mb-6">💡 Conseils</h3>
                   <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                    <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
-                      <div className="text-3xl mb-3">⏰</div>
-                      <h4 className="font-bold text-gray-800 mb-3 text-xl">Ponctualité</h4>
-                      <p className="text-gray-600">Arrivez au moins 1h avant votre épreuve, le temps de récupérer les dossards</p>
+                    <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 transition-all duration-300 cursor-pointer hover:bg-gradient-to-br hover:from-yellow-50 hover:to-orange-50 hover:scale-105 hover:shadow-xl group">
+                      <div className="text-3xl mb-3 group-hover:scale-125 group-hover:rotate-6 transition-transform duration-300">⏰</div>
+                      <h4 className="font-bold text-gray-800 mb-3 text-xl group-hover:text-orange-600 transition-colors duration-300">Ponctualité</h4>
+                      <p className="text-gray-600 group-hover:text-orange-500 transition-colors duration-300">Arrivez au moins 1h avant votre épreuve, le temps de récupérer les dossards</p>
                     </div>
-                    <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
-                      <div className="text-3xl mb-3">🤝</div>
-                      <h4 className="font-bold text-gray-800 mb-3 text-xl">Bénévoles</h4>
-                      <p className="text-gray-600">Soyez sympa avec nos bénévoles qui vont tout faire pour que l'événement se passe au mieux</p>
+                    <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100 transition-all duration-300 cursor-pointer hover:bg-gradient-to-br hover:from-green-50 hover:to-teal-50 hover:scale-105 hover:shadow-xl group">
+                      <div className="text-3xl mb-3 group-hover:scale-125 group-hover:rotate-6 transition-transform duration-300">🤝</div>
+                      <h4 className="font-bold text-gray-800 mb-3 text-xl group-hover:text-teal-600 transition-colors duration-300">Bénévoles</h4>
+                      <p className="text-gray-600 group-hover:text-teal-500 transition-colors duration-300">Soyez sympa avec nos bénévoles qui vont tout faire pour que l'événement se passe au mieux</p>
                     </div>
                   </div>
                 </div>

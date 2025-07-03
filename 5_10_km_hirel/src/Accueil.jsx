@@ -16,46 +16,15 @@ const Accueil = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [activeCarouselVideo, setActiveCarouselVideo] = useState(null);
 
-  // Données des vidéos de l'événement
-  const videos = [
-    {
-      id: 1,
-      title: "5km d'Hirel - Départ matinal",
-      description: "Le départ énergique du 5km à 9h pétante ! Ambiance électrique et motivante pour bien commencer la matinée.",
-      mp4Source: "videos/video1.mp4",
-      webmSource: "videos/video1.webm",
-      poster: "images/video1-poster.jpg",
-      category: "Départ",
-      date: "3 août 2025",
-      duration: "2:30",
-      isVertical: true
-    },
-    {
-      id: 2,
-      title: "10km d'Hirel - Parcours champêtre",
-      description: "Découvrez le magnifique parcours plat à travers la campagne hireloise. Un cadre authentique entre champs et nature !",
-      mp4Source: "videos/video2.mp4",
-      webmSource: "videos/video2.webm",
-      poster: "images/video2-poster.jpg",
-      category: "Parcours",
-      date: "3 août 2025",
-      duration: "4:15",
-      isVertical: true
-    },
-    {
-      id: 3,
-      title: "Ambiance et arrivée - 5&10km d'Hirel",
-      description: "L'ambiance conviviale de l'arrivée, les sourires (parfois crispés !) et la joie des coureurs ayant relevé le défi !",
-      mp4Source: "videos/video3.mp4",
-      webmSource: "videos/video3.webm",
-      poster: "images/video3-poster.jpg",
-      category: "Arrivée",
-      date: "3 août 2025",
-      duration: "3:45",
-      isVertical: true
-    },
-    
+  // Génération automatique de la liste des vidéos MP4 dans le dossier public/videos
+  const videoFiles = [
+    "video1.mp4","video2.mp4","video3.mp4","video4.mp4","video5.mp4","video6.mp4","video7.mp4","video8.mp4","video9.mp4","video10.mp4","video11.mp4","video12.mp4","video13.mp4","video14.mp4"
   ];
+
+  const videos = videoFiles.map((file, idx) => ({
+    id: idx + 1,
+    mp4Source: `videos/${file}`
+  }));
 
   // Initialiser la première vidéo comme active
   useEffect(() => {
@@ -191,9 +160,14 @@ const Accueil = () => {
 
                   {/* Bouton d'inscription */}
                   <div className="text-center">
-                    <button className="btn-primary text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                    <a
+                      href="https://www.nextrun.fr/course/inscriptions-avis/sport/4554/5-10-km-d-hirel/2025"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 inline-block"
+                    >
                       🏃‍♂️ Je m'inscris maintenant !
-                    </button>
+                    </a>
                   </div>
 
                 </div>
@@ -227,7 +201,7 @@ const Accueil = () => {
                 <div className="text-5xl mb-4 animate-bounce-subtle">🏃‍♂️</div>
                 <h3 className="text-xl font-bold text-[color:var(--color-vert)] mb-4">Parcours 100% plat</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Fini les côtes qui tuent ! 🙃 Ici, c'est <strong>du plat sur du plat</strong>. Parfait pour améliorer ses temps ou découvrir la course à pied sans craindre les montées interminables.
+                  Fini les côtes qui tuent ! 🙃 Ici, c'est <strong>tout plat</strong>. Parfait pour améliorer ses temps ou découvrir la course à pied sans craindre les montées interminables.
                 </p>
               </div>
 
@@ -236,7 +210,7 @@ const Accueil = () => {
                 <div className="text-5xl mb-4 animate-bounce-subtle delay-75">🌾</div>
                 <h3 className="text-xl font-bold text-[color:var(--color-bleu)] mb-4">Campagne authentique</h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Courez à travers champs et petites routes de campagne. <strong>Loin du bitume et des voitures</strong>, c'est la nature qui vous accompagne avec ses parfums et ses couleurs.
+                  Un parcours 100% champêtre ! Possibilité d'apercevoir <strong>des lapins et des tracteurs</strong>, c'est la nature qui vous accompagne avec ses parfums et ses couleurs.
                 </p>
               </div>
 
@@ -286,9 +260,14 @@ const Accueil = () => {
                 <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
                   Rejoignez-nous pour cette première édition qui promet d'être mémorable ! Places limitées pour préserver l'esprit convivial.
                 </p>
-                <button className="btn-primary text-xl px-12 py-4 rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-200">
+                <a
+                  href="https://www.nextrun.fr/course/inscriptions-avis/sport/4554/5-10-km-d-hirel/2025"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary text-xl px-12 py-4 rounded-2xl shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-200 inline-block"
+                >
                   🏃‍♀️ Je réserve ma place maintenant !
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -305,13 +284,9 @@ const Accueil = () => {
                   🎬 Découvrez l'événement en vidéo
                 </h2>
                 <p className="text-xl text-gray-600 mb-4 animate-fade-in delay-200">
-                  Plongez dans l'ambiance du 5&10km d'Hirel !
+                  Plongez dans l'univers du 5&10km d'Hirel !
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-gray-500 animate-fade-in delay-300">
-                  <span className="flex items-center space-x-2">
-                    <span>📱</span>
-                    <span>Vidéos optimisées format smartphone</span>
-                  </span>
                   <span className="hidden sm:block">•</span>
                   <span className="flex items-center space-x-2">
                     <span>🎯</span>
@@ -348,29 +323,30 @@ const Accueil = () => {
                 </div>
               </div>
               
+
               {/* 🎯 Lecteur vidéo principal (affiche la vidéo sélectionnée) */}
               {activeCarouselVideo && (
-                <FadeVideoPlayer video={activeCarouselVideo} />
+                <div className="mb-8 flex justify-center">
+                  <video
+                    src={activeCarouselVideo.mp4Source}
+                    controls
+                    className="rounded-2xl shadow-2xl"
+                    style={{ width: '420px', maxWidth: '98vw', aspectRatio: '9/16', background: '#000' }}
+                  />
+                </div>
               )}
 
-              {/* 🎯 Grille des vidéos (filtrées ou complètes) */}
+              {/* 🎯 Grille des vidéos (miniatures cliquables) */}
               <div
-                className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-4 md:gap-6"
+                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-4 md:gap-6"
                 style={{
-                  maxWidth: '1000px', // plus large sur desktop
+                  maxWidth: '1000px',
                   margin: '0 auto',
                   gridAutoRows: '1fr',
                 }}
               >
-                {getRelatedVideos().map((video, index) => {
+                {videos.map((video, index) => {
                   const isActive = activeCarouselVideo && video.id === activeCarouselVideo.id;
-                  // Responsive sizing: smaller on mobile, larger on desktop (CSS only)
-                  let cardStyle = {
-                    minWidth: 0,
-                    padding: '2px',
-                    width: '100%',
-                    aspectRatio: '9/16',
-                  };
                   return (
                     <button
                       key={video.id}
@@ -383,18 +359,13 @@ const Accueil = () => {
                       }}
                       className={`relative flex-shrink-0 group transition-all duration-300 scale-90 opacity-60 hover:opacity-80 hover:scale-95 animate-fade-in delay-${index * 100 + 400} w-full focus:outline-none rounded-2xl video-grid-item ${isActive ? 'ring-2 ring-[color:var(--color-jaune)] ring-opacity-70 scale-100 opacity-100 z-10 ' : ''}max-w-[90px] max-h-[140px] sm:max-w-[130px] sm:max-h-[200px] md:max-w-[180px] md:max-h-[270px] lg:max-w-[220px] lg:max-h-[330px]`}
                     >
-                      <VideoCard
-                        title={video.title}
-                        description={video.description}
-                        mp4Source={video.mp4Source}
-                        webmSource={video.webmSource}
-                        poster={video.poster}
-                        category={video.category}
-                        date={video.date}
-                        duration={video.duration}
-                        isVertical={video.isVertical}
-                        onPlay={() => setActiveCarouselVideo(video)}
-                        isActive={isActive}
+                      <video
+                        src={video.mp4Source}
+                        className="w-full h-full object-cover rounded-2xl"
+                        style={{ aspectRatio: '9/16', background: '#000' }}
+                        muted
+                        playsInline
+                        preload="metadata"
                       />
                     </button>
                   );
@@ -417,9 +388,8 @@ const Accueil = () => {
             className="absolute inset-0" 
             onClick={handleCloseModal}
           ></div>
-          
-          {/* Contenu de la modal - ADAPTÉ VERTICAL */}
-          <div className="relative w-full max-w-md lg:max-w-2xl bg-black rounded-2xl overflow-hidden shadow-2xl modal-content">
+          {/* Contenu de la modal - Vidéo seule */}
+          <div className="relative w-full max-w-lg bg-black rounded-2xl overflow-hidden shadow-2xl modal-content">
             {/* Bouton de fermeture */}
             <button
               onClick={handleCloseModal}
@@ -430,34 +400,14 @@ const Accueil = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
               </svg>
             </button>
-
             {/* Lecteur vidéo - FORMAT VERTICAL */}
-            <VideoPlayer
-              mp4Source={selectedVideo.mp4Source}
-              webmSource={selectedVideo.webmSource}
-              poster={selectedVideo.poster}
-              title={selectedVideo.title}
-              autoplay={true}
-              isVertical={selectedVideo.isVertical}
+            <video
+              src={selectedVideo.mp4Source}
+              controls
+              autoPlay
+              className="w-full h-full object-contain rounded-2xl"
+              style={{ width: '420px', maxWidth: '98vw', aspectRatio: '9/16', background: '#000' }}
             />
-
-            {/* Informations sur la vidéo */}
-            <div className="p-4 bg-gray-900 text-white">
-              <h3 className="text-lg font-bold mb-2">{selectedVideo.title}</h3>
-              <p className="text-gray-300 text-sm mb-3 line-clamp-2">{selectedVideo.description}</p>
-              <div className="flex items-center justify-between text-xs text-gray-400">
-                <span className="flex items-center space-x-2">
-                  <span className="px-2 py-1 bg-[color:var(--color-bleu)] text-white rounded text-xs font-semibold">
-                    {selectedVideo.category}
-                  </span>
-                  <span>{selectedVideo.date}</span>
-                </span>
-                <span className="flex items-center space-x-1">
-                  <span>📱</span>
-                  <span>{selectedVideo.duration}</span>
-                </span>
-              </div>
-            </div>
           </div>
         </div>
       )}

@@ -3,12 +3,11 @@ import Header from './assets/components/Header';
 import Footer from './assets/components/Footer';
 
 const partners = [
-  { name: 'Intermarché St Méloir des Ondes', logo: null, category: 'Alimentation' },
-  { name: 'Auto Premium 35', logo: null, category: 'Automobile' },
-  { name: 'Nextrun', logo: null, category: 'Running' },
-  { name: 'Finishers', logo: null, category: 'Sport' },
-  { name: 'Letanoux', logo: null, category: 'Local' },
-  { name: 'Maman Cédric', logo: null, category: 'Local' },
+  { name: 'Intermarché St Méloir des Ondes', logo: 'intermarché.png', category: 'Alimentation' },
+  { name: 'Auto Premium 35', logo: 'autopremium35.png', category: 'Automobile' },
+  { name: 'Nextrun', logo: 'nextrun.png', category: 'Sport' },
+  { name: 'Finishers', logo: 'finishers.jpg', category: 'Sport' },
+  { name: 'Letanoux', logo: 'Letanoux.webp', category: 'Local' },
 ];
 
 export default function Remerciements() {
@@ -81,9 +80,18 @@ export default function Remerciements() {
                           {partner.category}
                         </span>
                       </div>
-                      {/* Zone logo (placeholder stylé) */}
-                      <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl border border-gray-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <span className="text-3xl opacity-60">🏢</span>
+                      {/* Zone logo partenaire */}
+                      <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl border border-gray-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 overflow-hidden">
+                        {partner.logo ? (
+                          <img
+                            src={`images/${partner.logo}`}
+                            alt={`Logo ${partner.name}`}
+                            className="max-h-16 max-w-[70px] object-contain mx-auto"
+                            loading="lazy"
+                          />
+                        ) : (
+                          <span className="text-3xl opacity-60">🏢</span>
+                        )}
                       </div>
                       {/* Nom du partenaire */}
                       <h4 className="text-lg font-bold text-gray-800 text-center mb-2 group-hover:text-orange-600 transition-colors duration-300">

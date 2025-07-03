@@ -286,13 +286,7 @@ const Accueil = () => {
                 <p className="text-xl text-gray-600 mb-4 animate-fade-in delay-200">
                   Plongez dans l'univers du 5&10km d'Hirel !
                 </p>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-gray-500 animate-fade-in delay-300">
-                  <span className="hidden sm:block">•</span>
-                  <span className="flex items-center space-x-2">
-                    <span>🎯</span>
-                    <span>Sélectionnez une vidéo dans le carrousel</span>
-                  </span>
-                </div>
+
               </div>
               
 
@@ -308,18 +302,7 @@ const Accueil = () => {
                     </div>
                     <div className="text-sm text-gray-600">Vidéos disponibles</div>
                   </div>
-                  <div className="bg-white/80 backdrop-blur-sm rounded-2xl px-6 py-4 shadow-lg">
-                    <div className="text-2xl font-bold text-[color:var(--color-vert)]">📱</div>
-                    <div className="text-sm text-gray-600">Format vertical</div>
-                  </div>
-                  {activeCarouselVideo && (
-                    <div className="bg-gradient-to-r from-[color:var(--color-jaune)]/20 to-[color:var(--color-jaune)]/10 backdrop-blur-sm rounded-2xl px-6 py-4 shadow-lg border-2 border-[color:var(--color-jaune)]/30">
-                      <div className="text-lg font-bold text-[color:var(--color-jaune)]">
-                        {activeCarouselVideo.category}
-                      </div>
-                      <div className="text-sm text-gray-600">Sélectionnée</div>
-                    </div>
-                  )}
+                  
                 </div>
               </div>
               

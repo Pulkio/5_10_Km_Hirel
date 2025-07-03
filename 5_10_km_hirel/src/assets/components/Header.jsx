@@ -117,7 +117,7 @@ const Header = () => {
               </h1>
               <div className="flex items-center space-x-3 mt-1">
                 <span className="text-sm md:text-base lg:text-lg font-semibold text-white/90">
-                  Course nature
+                  Course sur route
                 </span>
                 <div className="w-1 h-1 bg-[color:var(--color-jaune)] rounded-full animate-pulse"></div>
                 <span className="text-sm md:text-base lg:text-lg font-semibold text-[color:var(--color-jaune)]">

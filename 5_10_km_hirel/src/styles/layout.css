@@ -1,4 +1,10 @@
+
 /* Styles de layout généraux, cartes, glassmorphism, responsive, etc. */
+
+/* Réduction globale de l'échelle du site pour correspondre à un zoom 70% */
+html {
+  font-size: 11px;
+}
 
 /* === STYLES DE BASE === */
 body {

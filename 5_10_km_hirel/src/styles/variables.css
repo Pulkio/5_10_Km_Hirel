@@ -1,18 +1,29 @@
-/* Variables CSS personnalisées pour le thème du site */
+/*
+ * variables.css — Variables CSS personnalisées pour le thème du site
+ *
+ * Rôle :
+ * - Définit toutes les couleurs, ombres et transitions utilisées dans le design
+ * - Permet de modifier facilement la charte graphique du site
+ *
+ * Liens avec les autres fichiers :
+ * - Importé dans index.css (donc accessible partout)
+ * - Utilisé dans tous les fichiers CSS (buttons, layout, animations, etc.)
+ */
+
 :root {
-  --color-bleu: #2a3f54;
-  --color-jaune: #fabd1d;
-  --color-vert: #98c240;
-  --color-gris-clair: #f8f9fa;
-  --color-gris-fonce: #343a40;
-  --color-blanc: #ffffff;
-  --color-noir: #000000;
-  --color-bleu-clair: #4a90e2;
-  --color-jaune-clair: #ffe999;
-  --color-shadow: rgba(42, 63, 84, 0.1);
-  --color-overlay: rgba(0, 0, 0, 0.5);
-  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-medium: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-bounce: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --color-bleu: #2a3f54;           /* Couleur principale (bleu foncé) */
+  --color-jaune: #fabd1d;          /* Jaune accent */
+  --color-vert: #98c240;           /* Vert accent */
+  --color-gris-clair: #f8f9fa;     /* Fond très clair */
+  --color-gris-fonce: #343a40;     /* Texte principal */
+  --color-blanc: #ffffff;          /* Blanc pur */
+  --color-noir: #000000;           /* Noir pur */
+  --color-bleu-clair: #4a90e2;     /* Bleu clair (hover, gradient) */
+  --color-jaune-clair: #ffe999;    /* Jaune clair (hover, gradient) */
+  --color-shadow: rgba(42, 63, 84, 0.1); /* Ombre douce */
+  --color-overlay: rgba(0, 0, 0, 0.5);  /* Overlay semi-transparent */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);   /* Transitions rapides */
+  --transition-medium: 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transitions moyennes */
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);   /* Transitions lentes */
+  --transition-bounce: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Effet rebond */
 }

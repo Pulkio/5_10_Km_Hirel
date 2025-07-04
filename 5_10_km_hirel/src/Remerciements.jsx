@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles/remerciements.css';
 import Header from './assets/components/Header';
 import Footer from './assets/components/Footer';
 
@@ -129,79 +130,6 @@ export default function Remerciements() {
       
       <Footer />
 
-      {/* Animations CSS */}
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-20px) rotate(180deg); }
-        }
-        @keyframes float-delay {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-30px) rotate(-180deg); }
-        }
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-        .animate-float-delay {
-          animation: float-delay 8s ease-in-out infinite;
-        }
-        @keyframes glow {
-          0%, 100% { 
-            text-shadow: 0 0 20px rgba(255, 193, 7, 0.5), 0 0 40px rgba(255, 193, 7, 0.3);
-          }
-          50% { 
-            text-shadow: 0 0 40px rgba(255, 193, 7, 0.8), 0 0 60px rgba(255, 193, 7, 0.5);
-          }
-        }
-        .animate-glow {
-          animation: glow 3s ease-in-out infinite;
-        }
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        @keyframes slide-up {
-          from {
-            opacity: 0;
-            transform: translateY(50px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        @keyframes fade-in-card {
-          from {
-            opacity: 0;
-            transform: translateY(30px) scale(0.9);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-          }
-        }
-        .animate-fade-in {
-          animation: fade-in 1s ease-out forwards;
-        }
-        .animate-slide-up {
-          animation: slide-up 1s ease-out 0.3s forwards;
-          opacity: 0;
-        }
-        .animate-fade-in-up {
-          animation: fade-in 1s ease-out forwards;
-          opacity: 0;
-        }
-        .animate-fade-in-card {
-          animation: fade-in-card 0.8s ease-out forwards;
-          opacity: 0;
-        }
-      `}</style>
     </>
   );
 }

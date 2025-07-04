@@ -1,5 +1,11 @@
-
-/* Styles de layout généraux, cartes, glassmorphism, responsive, etc. */
+/*
+ * layout.css — Styles de layout généraux, glassmorphism, responsive, etc.
+ * Nettoyé : seules les classes réellement utilisées dans le code React sont conservées.
+ * Liens :
+ * - Importé dans index.css (donc actif partout)
+ * - Les classes glass, glass-dark, glass-light, glass-card sont utilisées dans Header.jsx
+ * - Les utilitaires d'espacement (space-y-4, space-y-6, space-y-8) sont utilisés dans Accueil.jsx et InfosPratiques.jsx
+ */
 
 /* Réduction globale de l'échelle du site pour correspondre à un zoom 70% */
 html {
@@ -20,181 +26,22 @@ body {
   flex-direction: column;
 }
 
-/* === CARTES PERSONNALISÉES EXISTANTES === */
-.card-custom {
-  border-radius: 12px;
-  border: 1px solid rgba(42, 63, 84, 0.1);
-  padding: 1.5rem;
-  background-color: var(--color-blanc);
-  box-shadow: 0 4px 12px var(--color-shadow);
-  transition: all var(--transition-medium);
-  position: relative;
-  overflow: hidden;
-}
-
-.card-custom::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--color-bleu), var(--color-jaune));
-  transform: scaleX(0);
-  transition: transform var(--transition-medium);
-}
-
-.card-custom:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px var(--color-shadow);
-}
-
-.card-custom:hover::before {
-  transform: scaleX(1);
-}
-
-/* === NOUVELLES CARTES D'AVANTAGES === */
-.advantage-card {
-  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
-  backdrop-filter: blur(10px);
-  border-radius: 1rem;
-  padding: 2rem;
-  text-align: center;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid rgba(255,255,255,0.3);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  position: relative;
-  overflow: hidden;
-  will-change: transform;
-}
-
-.advantage-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, 
-    rgba(255,255,255,0.1) 0%, 
-    transparent 50%, 
-    rgba(255,255,255,0.05) 100%);
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.advantage-card:hover {
-  transform: scale(1.05) translateY(-8px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
-}
-
-.advantage-card:hover::before {
-  opacity: 1;
-}
-
-/* Icônes des cartes avantages */
-.advantage-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  display: block;
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-  transition: transform 0.3s ease;
-}
-
-.advantage-card:hover .advantage-icon {
-  transform: scale(1.1) rotate(5deg);
-}
-
-/* Titres des cartes avantages */
-.advantage-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: var(--color-bleu);
-  transition: color 0.3s ease;
-}
-
-.advantage-card:hover .advantage-title {
-  color: var(--color-vert);
-}
-
-/* Texte des cartes avantages */
-.advantage-text {
-  color: #6b7280;
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-
-/* === SECTION CALL-TO-ACTION === */
-.cta-section {
-  background: linear-gradient(135deg, 
-    rgba(var(--color-bleu-rgb), 0.1) 0%, 
-    rgba(var(--color-vert-rgb), 0.1) 100%);
-  border-radius: 2rem;
-  padding: 3rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  margin: 2rem 0;
-}
-
-.cta-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, 
-    rgba(255,255,255,0.1) 0%, 
-    transparent 50%, 
-    rgba(255,255,255,0.05) 100%);
-  pointer-events: none;
-}
-
-.cta-section::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,209,102,0.1) 0%, transparent 70%);
-  animation: rotate 20s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.cta-content {
-  position: relative;
-  z-index: 2;
-}
-
-/* === GLASSMORPHISM EXISTANT === */
+/* === GLASSMORPHISM (UTILISÉ DANS HEADER) === */
 .glass {
   background: rgba(255,255,255,0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.2);
 }
-
 .glass-dark {
   background: rgba(0,0,0,0.3);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.1);
 }
-
-/* Variants glassmorphism */
 .glass-light {
   background: rgba(255,255,255,0.2);
   backdrop-filter: blur(15px);
   border: 1px solid rgba(255,255,255,0.3);
 }
-
 .glass-card {
   background: rgba(255,255,255,0.15);
   backdrop-filter: blur(20px);
@@ -202,39 +49,16 @@ body {
   box-shadow: 0 8px 32px rgba(0,0,0,0.1);
 }
 
-/* === LAYOUTS FLEXIBLES === */
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.flex-between {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.flex-col-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 /* === GRILLES RESPONSIVE === */
+/*
+grid-auto-fit : UTILISÉ dans Accueil.jsx et/ou InfosPratiques.jsx (pour les grilles de cartes)
+grid-advantages : UTILISÉ dans Accueil.jsx (section avantages)
+*/
 .grid-auto-fit {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
 }
-
-.grid-auto-fill {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
 .grid-advantages {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -243,6 +67,9 @@ body {
 }
 
 /* === CONTENEURS === */
+/*
+container-fluid : UTILISÉ dans Header.jsx et/ou Accueil.jsx (conteneur principal)
+*/
 .container-fluid {
   width: 100%;
   max-width: 1400px;
@@ -250,179 +77,21 @@ body {
   padding: 0 1rem;
 }
 
-.container-narrow {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.container-wide {
-  width: 100%;
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-/* === SECTIONS === */
-.section-padding {
-  padding: 4rem 0;
-}
-
-.section-padding-large {
-  padding: 6rem 0;
-}
-
-.section-hero {
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* === UTILITAIRES TRANSFORM === */
-.transform {
-  will-change: transform;
-}
-
-.transform-gpu {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-}
-
-/* === ESPACEMENTS === */
+/* === ESPACEMENTS (UTILISÉS) === */
+/*
+space-y-4, space-y-6, space-y-8 : UTILISÉS dans Accueil.jsx et InfosPratiques.jsx
+*/
 .space-y-4 > * + * {
   margin-top: 1rem;
 }
-
 .space-y-6 > * + * {
   margin-top: 1.5rem;
 }
-
 .space-y-8 > * + * {
   margin-top: 2rem;
 }
 
-/* === RESPONSIVE DESIGN === */
-@media (max-width: 1024px) {
-  .grid-advantages {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-  
-  .section-padding {
-    padding: 3rem 0;
-  }
-  
-  .cta-section {
-    padding: 2rem;
-    border-radius: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .card-custom:hover { 
-    transform: translateY(-4px); 
-  }
-  
-  .advantage-card:hover {
-    transform: scale(1.02) translateY(-4px);
-  }
-  
-  .advantage-card {
-    padding: 1.5rem;
-  }
-  
-  .advantage-icon {
-    font-size: 2.5rem;
-  }
-  
-  .grid-advantages {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-  
-  .section-padding {
-    padding: 2rem 0;
-  }
-  
-  .section-padding-large {
-    padding: 3rem 0;
-  }
-  
-  .cta-section {
-    padding: 1.5rem;
-    border-radius: 1rem;
-  }
-  
-  .container-fluid,
-  .container-narrow,
-  .container-wide {
-    padding: 0 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .advantage-card {
-    padding: 1rem;
-  }
-  
-  .advantage-icon {
-    font-size: 2rem;
-  }
-  
-  .advantage-title {
-    font-size: 1.1rem;
-  }
-  
-  .advantage-text {
-    font-size: 0.9rem;
-  }
-  
-  .cta-section {
-    padding: 1rem;
-    margin: 1rem 0;
-  }
-}
-
-/* === RÉDUCTION DU MOUVEMENT === */
-@media (prefers-reduced-motion: reduce) {
-  .advantage-card,
-  .card-custom,
-  .transform {
-    transition: none !important;
-  }
-  
-  .advantage-card:hover,
-  .card-custom:hover {
-    transform: none !important;
-  }
-  
-  .cta-section::after {
-    animation: none !important;
-  }
-}
-
-/* === STYLES PRINT === */
-@media print {
-  .advantage-card,
-  .card-custom {
-    box-shadow: none !important;
-    transform: none !important;
-    break-inside: avoid;
-  }
-  
-  .cta-section {
-    background: none !important;
-    border: 1px solid #ccc !important;
-  }
-  
-  .glass,
-  .glass-dark,
-  .glass-light,
-  .glass-card {
-    background: white !important;
-    backdrop-filter: none !important;
-    border: 1px solid #ccc !important;
-  }
+/* === UTILITAIRE TRANSFORM === */
+.transform {
+  will-change: transform;
 }

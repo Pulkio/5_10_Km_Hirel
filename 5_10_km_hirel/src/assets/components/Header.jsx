@@ -64,13 +64,6 @@ const Header = () => {
 
   ] ;
 
-  /*
-  const navLinks = [
-    { href: "#epreuves", text: "Épreuves", icon: "🏃🏻" },
-    { href: "#infos", text: "Infos pratiques", icon: "📍" },
-    { href: "#photos", text: "Photos & Résultats", icon: "📸" },
-    { href: "#partenaires", text: "Partenaires", icon: "🤝" }
-  ]; */
 
   return (
     <>

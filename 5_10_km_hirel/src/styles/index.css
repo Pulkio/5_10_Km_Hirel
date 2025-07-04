@@ -1,0 +1,84 @@
+
+/*
+============================================================
+FICHIER : index.css
+But : Point d'entrée principal pour les styles globaux du site
+
+== ONBOARDING & DOCUMENTATION ==
+- Ce fichier importe tous les modules CSS principaux du projet.
+- Chaque import est commenté pour indiquer son usage et si le fichier est encore utile.
+- Les styles globaux (liens, titres, scrollbars, print, etc.) sont documentés section par section.
+- Les classes et styles inutilisés sont signalés dans chaque fichier importé.
+
+Mise à jour : juillet 2025
+============================================================
+*/
+
+/* Import Tailwind pour utilitaires (si activé dans le projet) */
+@import 'tailwindcss';
+
+/* Import Google Fonts (Inter, Playfair Display) pour la charte graphique */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+
+/* Variables CSS globales (palette, transitions, etc.) */
+@import './variables.css';
+
+/* Animations CSS (seulement les animations réellement utilisées, voir animations.css) */
+@import './animations.css';
+
+/* Styles des boutons (voir documentation dans buttons.css) */
+@import './buttons.css';
+
+/* Layout général (grilles, glassmorphism, spacing, voir layout.css) */
+@import './layout.css';
+
+
+
+  /*
+  Style global pour tous les liens du site.
+  Couleur principale : var(--color-bleu)
+  Hover : var(--color-bleu-clair)
+  */
+a {
+  font-weight: 500;
+  color: var(--color-bleu);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+a:hover {
+  color: var(--color-bleu-clair);
+  text-decoration: underline;
+}
+h1, h2, h3, h4, h5, h6 {
+  /*
+  Titres principaux : police Playfair Display pour la charte graphique
+  */
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
+  color: inherit;
+}
+
+
+/*
+Scrollbar personnalisé global (Webkit uniquement)
+UTILISÉ automatiquement sur tout le site (aucune déclaration explicite requise)
+Toujours utile pour l'identité visuelle.
+*/
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-gris-clair);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-bleu);
+  border-radius: 6px;
+  border: 2px solid var(--color-gris-clair);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-bleu-clair);
+}
+
+

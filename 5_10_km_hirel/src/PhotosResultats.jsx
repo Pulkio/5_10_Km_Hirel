@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles/photos-resultats.css';
 import Header from './assets/components/Header';
 import Footer from './assets/components/Footer';
 
@@ -80,47 +81,7 @@ const PhotosResultats = () => {
       
       <Footer />
 
-      {/* Animations CSS fixes */}
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-20px) rotate(180deg); }
-        }
-        @keyframes float-delay {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-30px) rotate(-180deg); }
-        }
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-        .animate-float-delay {
-          animation: float-delay 8s ease-in-out infinite;
-        }
-        @keyframes glow {
-          0%, 100% { 
-            text-shadow: 0 0 20px rgba(255, 193, 7, 0.5), 0 0 40px rgba(255, 193, 7, 0.3);
-          }
-          50% { 
-            text-shadow: 0 0 40px rgba(255, 193, 7, 0.8), 0 0 60px rgba(255, 193, 7, 0.5), 0 0 80px rgba(255, 193, 7, 0.3);
-          }
-        }
-        .animate-glow {
-          animation: glow 3s ease-in-out infinite;
-        }
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fade-in {
-          animation: fade-in 1s ease-out forwards;
-        }
-      `}</style>
+      {/* Animations CSS déplacées dans photos-resultats.css */}
     </>
   );
 };

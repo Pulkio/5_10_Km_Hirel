@@ -1,3 +1,19 @@
+
+
+/**
+ * ===============================
+ * Footer.jsx — Pied de page commun du site
+ * ===============================
+ *
+ * Rôle :
+ * - Affiché en bas de toutes les pages principales (Accueil, InfosPratiques, etc.)
+ * - Contient le copyright
+ *
+ * Liens avec les autres fichiers :
+ * - Importé dans Accueil.jsx, InfosPratiques.jsx, PhotosResultats.jsx, Remerciements.jsx
+ * - Utilise les couleurs CSS définies dans variables.css
+ */
+
 import React from 'react';
 
 /**

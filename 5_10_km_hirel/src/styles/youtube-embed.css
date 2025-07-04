@@ -1,0 +1,54 @@
+/*
+ * youtube-embed.css — Styles dédiés à l'intégration des vidéos YouTube Shorts
+ *
+ * Rôle :
+ * - Fournit le style du carrousel vidéo sur la page d'accueil (Accueil.jsx)
+ * - S'applique uniquement à l'intégration YouTube Shorts (pas aux vidéos locales)
+ *
+ * Liens avec les autres fichiers :
+ * - Importé dans Accueil.jsx
+ * - Complète les styles globaux (index.css, layout.css)
+ */
+
+/* Conteneur principal du carrousel YouTube Shorts */
+.youtube-embed-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+/* Iframe stylisée pour l'intégration Shorts */
+.youtube-embed-frame {
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  border: 1px solid #e5e7eb;
+  background: #000;
+  max-width: 100%;
+  aspect-ratio: 9/16;
+}
+/* Contrôles du carrousel (précédent/suivant) */
+.youtube-embed-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.youtube-embed-controls button {
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(90deg, #3b82f6, #1e40af);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.08);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.2s;
+}
+.youtube-embed-controls button:hover {
+  transform: scale(1.08);
+  background: linear-gradient(90deg, #1e40af, #3b82f6);
+}
+.youtube-embed-controls span {
+  color: #334155;
+  font-weight: 500;
+}

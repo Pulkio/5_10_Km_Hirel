@@ -1,6 +1,7 @@
 import React from 'react';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
+import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+import './Accueil.css'
 
 const YOUTUBE_SHORTS = [
   'https://youtube.com/shorts/CmGhuE26JAw',
@@ -57,7 +58,10 @@ const Accueil = () => {
   return (
     <>
       <Header />
-      <p>Hello</p>
+        <div className="section blue">
+          <h2>Le dimanche 3 aout 2025</h2>
+          <p>Hirel vous attend pour une matinée de course à pied mémorable (et sans trop de souffrance en montée 😉) !</p>
+        </div>
       <Footer />
     </>
   );

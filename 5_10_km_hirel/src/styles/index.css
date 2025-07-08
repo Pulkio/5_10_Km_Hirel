@@ -11,6 +11,9 @@
 
 body {
   margin: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 p {
@@ -19,6 +22,7 @@ p {
   font-size: 22px;
   font-weight: 500;
   color: var(--dark-contrast);
+  margin: 0;
 }
 
 small {
@@ -26,4 +30,13 @@ small {
     font-family: Inter;
     font-size: 18px;
     font-weight: 700;
+}
+
+h2 {
+  text-align: center;
+  font-family: 'Newake';
+  color: var(--primary-blue);
+  font-size: 50px;
+  text-transform: uppercase;
+  margin: 0;
 }

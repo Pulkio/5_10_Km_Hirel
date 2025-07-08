@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Accueil from './Accueil'; 
-import InfosPratiques from './InfosPratiques'; 
-import PhotosResultats from './PhotosResultats'; 
-import Partenaires from './Partenaires'; 
+import Accueil from './pages/Accueil/Accueil.jsx';
+import InfosPratiques from './pages/InfosPratiques/InfosPratiques.jsx';
+import PhotosResultats from './pages/PhotosResultats/PhotosResultats'; 
+import Partenaires from './pages/Partenaires/Partenaires'; 
 import './styles/index.css'; 
 
 ReactDOM.createRoot(document.getElementById('root')).render(

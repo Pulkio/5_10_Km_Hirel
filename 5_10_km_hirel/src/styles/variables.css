@@ -1,29 +1,13 @@
-/*
- * variables.css — Variables CSS personnalisées pour le thème du site
- *
- * Rôle :
- * - Définit toutes les couleurs, ombres et transitions utilisées dans le design
- * - Permet de modifier facilement la charte graphique du site
- *
- * Liens avec les autres fichiers :
- * - Importé dans index.css (donc accessible partout)
- * - Utilisé dans tous les fichiers CSS (buttons, layout, animations, etc.)
- */
-
 :root {
-  --color-bleu: #2a3f54;           /* Couleur principale (bleu foncé) */
-  --color-jaune: #fabd1d;          /* Jaune accent */
-  --color-vert: #98c240;           /* Vert accent */
-  --color-gris-clair: #f8f9fa;     /* Fond très clair */
-  --color-gris-fonce: #343a40;     /* Texte principal */
-  --color-blanc: #ffffff;          /* Blanc pur */
-  --color-noir: #000000;           /* Noir pur */
-  --color-bleu-clair: #4a90e2;     /* Bleu clair (hover, gradient) */
-  --color-jaune-clair: #ffe999;    /* Jaune clair (hover, gradient) */
-  --color-shadow: rgba(42, 63, 84, 0.1); /* Ombre douce */
-  --color-overlay: rgba(0, 0, 0, 0.5);  /* Overlay semi-transparent */
-  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);   /* Transitions rapides */
-  --transition-medium: 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transitions moyennes */
-  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);   /* Transitions lentes */
-  --transition-bounce: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Effet rebond */
+  --primary-blue: #658ED8;
+  --secondary-blue: #50B5DE;
+  --secondary-blue-lighter: #F4F8FF;
+  --dark-contrast: #253656;
+  --green: #98C340;
+
+  --header-gradient :  linear-gradient(180deg, rgba(63, 100, 169, 0.70) 0%);
+  --yellow-gradient : linear-gradient(45deg, #F9D028 0%, #FF9000 100%), #FFF;
+  --primary-blue-gradient: linear-gradient(180deg, rgba(63, 100, 169, 0.80) 0%, rgba(63, 100, 169, 0.80) 100%);
+  --secondary-blue-gradient: linear-gradient(180deg, #50B5DE 0%, #8DC8E6 100%), #98C340;
+
 }

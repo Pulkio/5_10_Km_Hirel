@@ -1,0 +1,11 @@
+div.card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 50px;
+  gap: 20px;
+
+  width: 60;
+  height: 27;
+
+  box-shadow: 4px 4px 15px 2px #00000040;
+}

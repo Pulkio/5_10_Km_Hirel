@@ -1,0 +1,28 @@
+header {
+  position: relative;
+  display: flex;
+  width: 100vw;
+  height: 10vh;
+  padding: 10px 120px;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--header-gradient);
+  backdrop-filter: blur(7.5px);
+  transition: background-color 0.3s ease;
+  z-index: 0;
+  backdrop-filter: blur(7.5px);
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--primary-blue-gradient);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+header:hover::before {
+  opacity: 1;
+}

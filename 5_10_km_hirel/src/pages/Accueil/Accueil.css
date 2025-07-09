@@ -10,6 +10,13 @@
     background-color: #F4F8FF;
 }
 
+.section-description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
 @media screen and (max-width: 600px) {
     .section {
         padding: 50px 50px;

@@ -9,3 +9,9 @@
 .blue {
     background-color: #F4F8FF;
 }
+
+@media screen and (max-width: 600px) {
+    .section {
+        padding: 50px 50px;
+    }
+}

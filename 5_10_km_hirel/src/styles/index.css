@@ -14,6 +14,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 p {
@@ -39,4 +40,85 @@ h2 {
   font-size: 50px;
   text-transform: uppercase;
   margin: 0;
+}
+
+h1 {
+  color: #FFF;
+  font-family: Newake, sans-serif;
+  font-size: 70px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: bottom;
+
+  span {
+    font-family: Inter, sans-serif;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 1;
+    text-transform: uppercase;
+    display: inline-block;
+    vertical-align: bottom;
+  }
+}
+
+h1.outline {
+  color: transparent;
+  font-family: Newake, sans-serif;
+  font-size: 70px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 10.5px;
+  text-align: center;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: bottom;
+
+  /* Outline */
+  -webkit-text-stroke-width: 5px;
+  -webkit-text-stroke-color: #FFF;
+  paint-order: stroke fill;
+  stroke-linejoin: round;
+
+  /* Tighter box sizing */
+  box-sizing: content-box;
+
+  /* Ensure font renders cleanly */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h3 {
+  color: #FFF;
+  text-align: center;
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+@media screen and (max-width: 600px) {
+  h3 {
+    font-size: 24px;
+  }
+
+  p{
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 52px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
 }

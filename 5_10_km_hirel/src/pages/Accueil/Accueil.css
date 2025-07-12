@@ -10,6 +10,19 @@
   background-color: #F4F8FF;
 }
 
+.section-description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .section {
+        padding: 50px 50px;
+    }
+}
+
 .green-white-gradient {
   background: linear-gradient(90deg, rgba(152, 195, 64, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
 }

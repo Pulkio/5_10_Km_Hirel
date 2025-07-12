@@ -6,7 +6,7 @@
   gap: 50px;
 }
 
-.blue {
+.section.blue {
   background-color: #F4F8FF;
 }
 
@@ -17,44 +17,8 @@
     gap: 10px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
     .section {
         padding: 50px 50px;
     }
-}
-
-.green-white-gradient {
-  background: linear-gradient(90deg, rgba(152, 195, 64, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-}
-
-.blue-white-gradient {
-  background: linear-gradient(90deg, rgba(101, 142, 216, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
-}
-
-.distance {
-  >div {
-    display: flex;
-  }
-}
-
-.txt-5km,
-.txt-10km {
-  font-family: Inter;
-  font-weight: 800;
-  font-style: Extra Bold;
-  font-size: 22px;
-  line-height: 100%;
-  letter-spacing: 0%;
-}
-
-.txt-5km {
-  color: #98C340;
-}
-
-.txt-10km {
-  color: #658ED8;
-}
-
-.start-time {
-  margin-left: auto;
 }

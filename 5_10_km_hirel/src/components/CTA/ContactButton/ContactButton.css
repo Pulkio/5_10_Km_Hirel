@@ -14,7 +14,7 @@
 
 .contact-button img {
   width: 20px;
-  height: auto;
+  height: 20px!important;
 }
 
 .contact-button p {
@@ -27,13 +27,29 @@
 .contact-button.white {
   background: white;
 }
+
+.contact-button.blue {
+  background: var(--secondary-blue);
+}
+
 .contact-button.white:hover{
     background: var(--primary-blue);
 }
 
-.contact-button.white p{
+.contact-button.blue:hover {
+  background: #3FA3CB;
+}
+
+.contact-button p{
     color: var(--primary-blue)!important;
 }
-.contact-button.white:hover p {
+.contact-button:hover p {
+    color: white!important;
+}
+
+.contact-button.blue p{
+    color: white!important;
+}
+.contact-button.blue:hover p {
     color: white!important;
 }

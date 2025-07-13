@@ -11,7 +11,7 @@
   font-family: 'Newake', sans-serif;
   text-transform: uppercase;
   color: white;
-  transition: background-color 0.3s ease
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .header-link:hover {
@@ -21,6 +21,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  transform: rotate(2deg);
 }
 
 .header-link.active {
@@ -30,4 +31,5 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  transform: rotate(2deg);
 }

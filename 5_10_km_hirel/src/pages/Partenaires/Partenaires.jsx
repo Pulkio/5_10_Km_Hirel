@@ -1,6 +1,7 @@
 import React from "react";
 import * as Components from "../../components/index";
 import './Partenaires.css';
+import mail from "../../assets/logos/mail.svg";
 
 const partners = [
   {
@@ -51,6 +52,7 @@ export default function Partenaires() {
               Rejoignez notre aventure et soutenez un événement sportif qui
               rassemble toute la communauté !
             </p>
+            <Components.ContactButton label="Nous contacter" href="mailto:contact.gmj.events@gmail.com" color="blue" logo={mail}/>
           </Components.Card>
         </Components.Section>
       </Components.PageContent>

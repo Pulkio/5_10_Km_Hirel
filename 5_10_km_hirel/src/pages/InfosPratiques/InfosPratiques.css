@@ -1,46 +1,26 @@
-.ip-main-container {
-  margin-top: 50px;
-  padding: 0 16px;
-}
-
-.ip-container {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
+/* Mobile First — une colonne */
+.ip-cards-container {
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 24px;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Les cards prennent toute la largeur en mobile */
-.ip-container > * {
-  flex: 1 1 100%;
+.ip-cards-container > * {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 320px;
+  width: 100%;
 }
 
-/* Deux colonnes dès 768px */
-@media screen and (min-width: 768px) {
-  .ip-container {
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .ip-container > * {
-    flex: 1 1 48%;
-  }
-}
-
-.ip-parking-number {
+.ip-blue-strong {
   color: var(--secondary-blue);
-  font-size: 20px;
 }
 
-.ip-contact-container {
+.ip-contact {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -49,23 +29,28 @@
 }
 
 .ip-contact-button {
+  all: unset;
   display: flex;
-  padding: 12px 24px;
-  justify-content: center;
   align-items: center;
-  gap: 10px;
+  padding: 10px 16px;
+  gap: 8px;
+  font-size: 14px;
   border-radius: 500px;
-  background: var(--primary-blue);
+  background: var(--secondary-blue);
+  color: white;
+  cursor: pointer;
 }
 
-.ip-contact-button a {
-  text-decoration: none;
-  font-family: Inter;
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--dark-contrast);
+.ip-contact-button img {
+  width: 20px;
+  height: auto;
+}
+
+.ip-contact-button p {
   margin: 0;
-  text-align: center;
+  font-size: 16px;
+  color:#FFF;
+  font-weight: bold;
 }
 
 .ip-rs-container {
@@ -75,24 +60,14 @@
   gap: 12px;
 }
 
-.ip-rs-button {
-  display: flex;
-  align-items: center;
-  padding: 10px 16px;
-  gap: 8px;
-  font-size: 14px;
-  border-radius: 500px;
-  background: var(--secondary-blue);
-  color: white;
-  text-decoration: none;
-}
+/* Desktop : deux colonnes dès 768px */
+@media screen and (min-width: 1000px) {
+  .ip-cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-.ip-rs-button img {
-  width: 20px;
-  height: auto;
-}
-
-.ip-rs-button p {
-  margin: 0;
-  font-size: 14px;
+  /* La dernière carte (Contact) prend les deux colonnes */
+  .ip-cards-container > *:last-child {
+    grid-column: span 2;
+  }
 }

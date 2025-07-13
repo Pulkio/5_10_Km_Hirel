@@ -50,7 +50,7 @@ const InfosPratiques = () => {
               <p>Hydratez-vous bien avant, pendant et après l'effort.</p>
               
               <strong className="ip-blue-strong">10 km<p>Eau disponible entre le 5ème et 6ème km </p></strong>
-              <strong className="ip-blue-strong">Final<p>Eau disponible devant la salle intergénérationnelle </p></strong>
+              <strong className="ip-blue-strong">Arrivée<p>Ravitaillement complet disponible devant la salle intergénérationnelle </p></strong>
               
             </Components.Card>
 
@@ -67,7 +67,7 @@ const InfosPratiques = () => {
 
             <Components.Card color="blue">
               <strong>✉️ Contact </strong>
-              <p>Une question ? N'hésitez pas à nous écrire, nous répondons généralement sous 24h </p>
+              <p>Une question ? N'hésitez pas à nous écrire ! </p>
 
               <div className="ip-contact">
                 <Components.ContactButton label="contact.gmj.events@gmail.com" href="mailto:contact.gmj.events@gmail.com" color="white"/>

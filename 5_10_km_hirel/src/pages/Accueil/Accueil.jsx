@@ -35,7 +35,7 @@ const Accueil = () => {
               <p>🏃‍♂️</p>
               <strong>Un Parcours 100% plat</strong>
               <p>
-                Fini les côtes qui tuent ! 🙃 Ici, c'est tout plat. Parfait pour
+                Fini les côtes qui tuent ! Ici, c'est tout plat. Parfait pour
                 améliorer ses temps ou découvrir la course à pied sans craindre
                 les montées interminables.
               </p>
@@ -75,8 +75,7 @@ const Accueil = () => {
               <strong>Organisé localement</strong>
               <p>
                 Par des passionnés du coin qui connaissent chaque recoin du
-                territoire. De l'amour du terroir dans chaque détail de
-                l'organisation !
+                territoire !
               </p>
             </Components.Card>
 
@@ -86,7 +85,7 @@ const Accueil = () => {
               <p>
                 Tous les coureurs repartent avec des chaussettes
                 personnalisées aux couleurs de l'événement ! Un souvenir utile
-                et stylé de votre première participation.
+                et stylé de votre première participation !
               </p>
             </Components.Card>
           </div>

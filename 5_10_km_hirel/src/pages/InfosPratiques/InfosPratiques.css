@@ -16,6 +16,16 @@
   width: 100%;
 }
 
+.ip-link{
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.ip-link:hover{
+  color:var(--primary-blue)
+}
+
 .ip-blue-strong {
   color: var(--secondary-blue);
 }
@@ -26,31 +36,6 @@
   gap: 12px;
   justify-content: center;
   align-items: center;
-}
-
-.ip-contact-button {
-  all: unset;
-  display: flex;
-  align-items: center;
-  padding: 10px 16px;
-  gap: 8px;
-  font-size: 14px;
-  border-radius: 500px;
-  background: var(--secondary-blue);
-  color: white;
-  cursor: pointer;
-}
-
-.ip-contact-button img {
-  width: 20px;
-  height: auto;
-}
-
-.ip-contact-button p {
-  margin: 0;
-  font-size: 16px;
-  color:#FFF;
-  font-weight: bold;
 }
 
 .ip-rs-container {

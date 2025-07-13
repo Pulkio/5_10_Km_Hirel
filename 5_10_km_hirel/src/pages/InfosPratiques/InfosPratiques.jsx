@@ -23,9 +23,11 @@ const InfosPratiques = () => {
                 label="Dimanche 3 août"
                 startTime="à partir de 7h30"
               />
-              <p>
-                Salle intergénérationnelle <br /> 36 rue des Alleux, 35120 Hirel
-              </p>
+              <a href="https://www.google.com/maps/search/?api=1&query=36+Rue+des+Alleux,+35120+Hirel" target="_blank">
+                <p className="ip-link">
+                  📍Salle intergénérationnelle <br /> 36 rue des Alleux, 35120 Hirel
+                </p>
+              </a>
             </Components.Card>
 
             <Components.Card>
@@ -33,10 +35,12 @@ const InfosPratiques = () => {
               <strong className="ip-blue-strong">
                 300 places disponibles
               </strong>
-              <p>
-                Parking du cimetière d'Hirel <br /> 8 rue du Bord de Mer, 35120
-                Hirel
-              </p>
+              <a href="https://www.google.com/maps/search/?api=1&query=8-16+Rue+du+Bord+de+Mer,+35120+Hirel" target="_blank">
+                <p className="ip-link">
+                  📍Parking du cimetière d'Hirel <br /> 8 rue du Bord de Mer, 35120
+                  Hirel
+                </p>
+              </a>
               <p>À 10 min à pied du départ</p>
               <p>Aucune consigne pour les sacs ne sera proposée.</p>
             </Components.Card>
@@ -61,24 +65,20 @@ const InfosPratiques = () => {
               </p>
             </Components.Card>
 
-            <Components.Card>
+            <Components.Card color="blue">
               <strong>✉️ Contact </strong>
               <p>Une question ? N'hésitez pas à nous écrire, nous répondons généralement sous 24h </p>
 
               <div className="ip-contact">
-                <a href="mailto:contact.gmj.events@gmail.com" className="ip-contact-button">
-                  <p>contact.gmj.events@gmail.com</p>
-                </a>
-
+                <Components.ContactButton label="contact.gmj.events@gmail.com" href="mailto:contact.gmj.events@gmail.com" color="white"/>
+                
                 <div className="ip-rs-container">
-                  <a href="https://www.instagram.com/10km_hirel?igsh=eHQ2bnI5amZjbDNw" target="_blank" className="ip-contact-button">
-                    <img src={instagramLogo} alt="Logo Instagram" />
-                    <p>Instagram</p>
-                  </a>
-                  <a href="https://www.facebook.com/share/1AjPnC8hhE/" target="_blank" className="ip-contact-button">
-                    <img src={facebookLogo} alt="Logo Facebook" />
-                    <p>Facebook</p>
-                  </a>
+                  <Components.ContactButton 
+                  label="Instagram" href="https://www.instagram.com/10km_hirel?igsh=eHQ2bnI5amZjbDNw"
+                  color="white" logo={instagramLogo} />
+                  <Components.ContactButton 
+                  label="Facebook" href="https://www.facebook.com/share/1AjPnC8hhE/"
+                  color="white" logo={facebookLogo} />
                 </div>
               </div>
             </Components.Card>

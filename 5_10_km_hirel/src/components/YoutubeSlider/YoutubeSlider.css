@@ -33,17 +33,39 @@
     line-height: normal;
 }
 
-.ytbs-controls-button{
-    display: flex;
-    width: 34px;
-    height: 34px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+.ytbs-controls-button {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  width: 34px;
+  height: 34px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 
-    border-radius: 500px;
-    border: none;
-    background: linear-gradient(180deg, #658ED8 -20.36%, #3F64A9 100%), #CD5757;
+  border-radius: 500px;
+  border: none;
+  background: linear-gradient(180deg, #658ED8 -20.36%, #3F64A9 100%), #CD5757;
+}
+
+.ytbs-controls-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 500px;
+  background: linear-gradient(180deg, #547CC4 -20.36%, #34538F 100%), #B94C4C;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+
+.ytbs-controls-button:hover::before {
+  opacity: 1;
+}
+
+.ytbs-controls-button > * {
+  position: relative;
+  z-index: 1;
 }
 
 .ytbs-controls-button-arrow{

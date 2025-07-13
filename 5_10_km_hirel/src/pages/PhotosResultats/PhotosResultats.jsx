@@ -6,7 +6,9 @@ const PhotosResultats = () => {
     <>
       <Components.Header />
       <Components.PageContent>
-        
+        <Components.Section>
+          
+        </Components.Section>
       </Components.PageContent>
       <Components.Footer />
     </>

@@ -7,7 +7,7 @@ const Accueil = () => {
   return (
     <>
       <Components.Header />
-      <Components.PageContent>
+      <Components.PageContent hostpage>
         <Components.Hero/>
         <Components.Section color="blue">
           <h2>Le dimanche 3 aout 2025</h2>

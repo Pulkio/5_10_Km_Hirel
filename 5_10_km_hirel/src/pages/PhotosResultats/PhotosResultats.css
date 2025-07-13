@@ -1,0 +1,11 @@
+.linkCardDisplay {
+    display: flex;
+    gap: 50px;
+}
+
+@media screen and (max-width: 800px) {
+    .linkCardDisplay {
+    flex-direction: column;
+    gap: 20px;
+}
+}

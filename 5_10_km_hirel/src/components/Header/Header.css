@@ -88,5 +88,6 @@ header:hover::before {
 
   .logo {
     max-width: 120px;
+    cursor: pointer;
   }
 }

@@ -1,6 +1,5 @@
-import React from 'react';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import React from "react";
+import * as Components from "../../components/index";
 
 // const partners = [
 //   { name: 'Intermarché St Méloir des Ondes', logo: 'intermarché.png', category: 'Alimentation' },
@@ -13,10 +12,11 @@ import Footer from '../../components/Footer/Footer';
 export default function Partenaires() {
   return (
     <>
-      <Header />
-      
-      <Footer />
-
+      <Components.Header />
+      <Components.PageContent>
+        
+      </Components.PageContent>
+      <Components.Footer />
     </>
   );
 }

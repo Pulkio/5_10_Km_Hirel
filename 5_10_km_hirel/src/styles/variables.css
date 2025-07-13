@@ -1,4 +1,6 @@
 :root {
+  overflow-x: hidden;
+  
   --primary-blue: #658ED8;
   --secondary-blue: #50B5DE;
   --secondary-blue-lighter: #F4F8FF;

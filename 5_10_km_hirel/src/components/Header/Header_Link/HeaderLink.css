@@ -22,3 +22,12 @@
   align-items: center;
   gap: 10px;
 }
+
+.header-link.active {
+  display: inline-flex;
+  padding: 5px 20px;
+  background-color: var(--green);
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}

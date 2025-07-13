@@ -1,0 +1,157 @@
+.heroContainer {
+    position: relative;
+    padding: 150px 0px 300px 0px;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: fit-content;
+    background: var(--secondary-blue-gradient);
+
+    .textContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        align-self: stretch;
+
+        .firstEventTag {
+            display: flex;
+            padding: 10px 20px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #F9D028 0%, #FF9000 100%), #FFF;
+            color: #FFF;
+            text-align: center;
+            font-family: Inter;
+            font-size: 22px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+
+        img {
+            height: 200px;
+        }
+
+    }
+
+    .vector {
+    position: absolute;
+
+        &.sun {
+            right: 0;
+            top: 0;
+            transform: translate(50%, -50%);
+        }
+
+        &.montSaintMichel {
+            bottom: 20vh;
+            left: 5vw;
+        }
+
+        &.waves {
+            bottom: 0;
+            left: 50%;
+            width: 100vw;
+            height: 25vh;
+            transform: translateX(-50%);
+            object-fit: cover;
+            z-index: 5;
+        }
+    }
+
+}
+
+@media screen and (max-width: 1500px) {
+  .heroContainer {
+    padding: 150px 0px 250px 0px;
+
+    .vector {
+      &.montSaintMichel {
+        bottom:15vh;
+        left: 5vw;
+      }
+
+      &.waves {
+        bottom: 0;
+        left: 50%;
+        width: 100vw;
+        height: 20vh;
+        transform: translateX(-50%);
+        object-fit: cover;
+        z-index: 5;
+      }
+    }
+  }
+}
+
+@media screen and (min-height: 400px) {
+    .heroContainer {
+        position: relative;
+        padding: 150px 0px 400px 0px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .heroContainer {
+
+    padding: 150px 0px 300px 0px;
+
+    .textContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        align-self: stretch;
+
+        .firstEventTag {
+            display: flex;
+            padding: 5px 10px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #F9D028 0%, #FF9000 100%), #FFF;
+            color: #FFF;
+            text-align: center;
+            font-family: Inter;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+
+        img {
+            height: 125px;
+        }
+
+    }
+
+    .vector {
+
+        &.sun {
+            width: 300px;
+        }
+
+        &.montSaintMichel {
+            bottom: 10vh;
+            left: 5vw;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80vw;
+        }
+
+        &.waves {
+            bottom: 0;
+            left: 50%;
+            width: 100vw;
+            height: 15vh;
+            transform: translateX(-50%);
+            object-fit: cover;
+            z-index: 5;
+        }
+    }
+
+}
+}

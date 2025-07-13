@@ -1,0 +1,37 @@
+.section {
+  padding: 100px 205px;
+  display: flex;
+  justify-content: center;
+}
+
+.section-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1400px;
+    gap: 50px;
+}
+
+.section.blue {
+  background-color: #F4F8FF;
+}
+
+.section-description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+@media screen and (max-width: 1400px) {
+    .section {
+        padding: 75px 75px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .section {
+        padding: 50px 50px;
+    }
+}
+

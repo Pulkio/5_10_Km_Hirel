@@ -5,4 +5,5 @@ export { default as Gauge } from "./Gauge/Gauge";
 export { default as Footer } from "./Footer/Footer";
 export { default as InscriptionButton } from "./CTA/InscriptionButton/InscriptionButton";
 export { default as Card } from "./Card/Card";
-export { default as Section} from "./Section/Section"
+export { default as Section} from "./Layout/Section/Section"
+export { default as PageContent} from "./Layout/PageContent/PageContent"

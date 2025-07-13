@@ -1,13 +1,14 @@
 import React from 'react';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import * as Components from "../../components/index";
 
 const PhotosResultats = () => {
   return (
     <>
-      <Header />
-      
-      <Footer />
+      <Components.Header />
+      <Components.PageContent>
+        
+      </Components.PageContent>
+      <Components.Footer />
     </>
   );
 };

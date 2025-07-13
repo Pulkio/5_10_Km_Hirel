@@ -1,5 +1,5 @@
 import "./Section.css";
-import InscriptionButton from "../CTA/InscriptionButton/InscriptionButton";
+import InscriptionButton from "../../CTA/InscriptionButton/InscriptionButton";
 
 const Section = ({children, color}) => {
   return (

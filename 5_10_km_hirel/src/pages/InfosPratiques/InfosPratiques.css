@@ -1,0 +1,73 @@
+/* Mobile First — une colonne */
+.ip-cards-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ip-cards-container > * {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.ip-blue-strong {
+  color: var(--secondary-blue);
+}
+
+.ip-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.ip-contact-button {
+  all: unset;
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  gap: 8px;
+  font-size: 14px;
+  border-radius: 500px;
+  background: var(--secondary-blue);
+  color: white;
+  cursor: pointer;
+}
+
+.ip-contact-button img {
+  width: 20px;
+  height: auto;
+}
+
+.ip-contact-button p {
+  margin: 0;
+  font-size: 16px;
+  color:#FFF;
+  font-weight: bold;
+}
+
+.ip-rs-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Desktop : deux colonnes dès 768px */
+@media screen and (min-width: 1000px) {
+  .ip-cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* La dernière carte (Contact) prend les deux colonnes */
+  .ip-cards-container > *:last-child {
+    grid-column: span 2;
+  }
+}

@@ -17,6 +17,15 @@ const partners = [
   { name: "Nextrun", logo: "nextrun.png", category: "Sport" },
   { name: "Finishers", logo: "finishers.jpg", category: "Sport" },
   { name: "Letanoux", logo: "Letanoux.webp", category: "Local" },
+  { name: "Laiterie Malo", logo: "malo.png", category: "Alimentation" },
+  { name: "Lodi Group", logo: "lodi-group.png", category: "Local" },
+  { name: "Sobhi Sport Rennes", logo: "Sobhi.png", category: "Sport" },
+  { name: "Atome Floral (St Méloir Des Ondes)", logo: "atome-floral.webp", category: "Fleuriste" },
+  { name: "Les galettes de St Malo", logo: "galettes_de_st_malo.png", category: "Alimentation" },
+  { name: "Crédit agricole", logo: "credit-agricole.jpg", category: "Banque" },
+  { name: "Fleurs et nature (La Richardais)", logo: "fleurs_et_nature.jpg", category: "Fleuriste" },
+
+ 
 ];
 
 export default function Partenaires() {

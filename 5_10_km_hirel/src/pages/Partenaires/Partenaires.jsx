@@ -15,7 +15,6 @@ const partners = [
     category: "Automobile",
   },
   { name: "Nextrun", logo: "nextrun.png", category: "Sport" },
-  { name: "Finishers", logo: "finishers.jpg", category: "Sport" },
   { name: "Letanoux", logo: "Letanoux.webp", category: "Local" },
   { name: "Laiterie Malo", logo: "malo.png", category: "Alimentation" },
   { name: "Lodi Group", logo: "lodi-group.png", category: "Local" },
@@ -24,8 +23,10 @@ const partners = [
   { name: "Les galettes de St Malo", logo: "galettes_de_st_malo.png", category: "Alimentation" },
   { name: "Crédit agricole", logo: "credit-agricole.jpg", category: "Banque" },
   { name: "Fleurs et nature (La Richardais)", logo: "fleurs_et_nature.jpg", category: "Fleuriste" },
+  { name: "La Cancalaise", logo: "la_cancalaise.png", category: "Alimentation" },
+  { name: "La Buvette des bains", logo: "la_buvette_des_bains.jpeg", category: "Alimentation" },
 
- 
+
 ];
 
 export default function Partenaires() {

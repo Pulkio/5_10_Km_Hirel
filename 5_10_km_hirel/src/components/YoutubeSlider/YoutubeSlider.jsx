@@ -4,16 +4,13 @@ import NextButtonArrow from '../../assets/icons/NextButtonArrow.svg'
 import PreviousButtonArrow from '../../assets/icons/PreviousButtonArrow.svg'
 
 const YOUTUBE_SHORTS = [
+  'https://youtube.com/embed/BO5zQRFYtfA',
   'https://youtube.com/embed/CmGhuE26JAw',
   'https://youtube.com/embed/9GTtodizSHU',
-  'https://youtube.com/embed/WzftutqWjGA',
   'https://youtube.com/embed/ZK3UH-ND6Ow',
   'https://youtube.com/embed/ai1iwx8FEac',
-  'https://youtube.com/embed/tDrzoa81LnY',
-  'https://youtube.com/embed/ZhgAq5kHTC0',
   'https://youtube.com/embed/QPHamOLXm4Q',
-  'https://youtube.com/embed/NaxHR1tapp0',
-  'https://youtube.com/embed/25a4TyzI268',
+  'https://youtube.com/embed/z-r115PdMOo'
 ];
 
 const YoutubeSlider = () => {

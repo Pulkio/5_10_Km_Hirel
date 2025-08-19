@@ -8,26 +8,21 @@ const PhotosResultats = () => {
       <Components.Header />
       <Components.PageContent>
         <Components.Section>
-          <strong>
-            La course n'a pas encore eu lieu. <br />
-            Les liens vers les photos officielles et la page de résultats seront
-            affichés ici après les courses !
-          </strong>
-          <h2>Rendez-vous le Dimanche 3 Août 2025</h2>
+          <h2>Retrouvez les photos et les résultats !</h2>
           <div className="linkCardDisplay">
-            <Components.LinkCard unavailable link="">
+            <Components.LinkCard link="https://photos.app.goo.gl/pAY5DYwSTc6WaCR76">
               <p className="smiley">📸</p>
-              <strong>Photos officielles</strong>
+              <strong>Photos 5km</strong>
             </Components.LinkCard>
-            <Components.LinkCard color="green" unavailable link="">
+            <Components.LinkCard link="https://photos.app.goo.gl/JhwCQmSDrYVq6BhL9">
+              <p className="smiley">📸</p>
+              <strong>Photos 10km</strong>
+            </Components.LinkCard>
+            <Components.LinkCard color="green" link="https://chronowest.fr/resultats/5-10km-dhirel-2025/">
               <p className="smiley">🏁</p>
               <strong>Résultats officiels</strong>
             </Components.LinkCard>
           </div>
-          <p>
-            Les participants seront informés via nos réseaux sociaux de la
-            publication des photos et résultats.
-          </p>
         </Components.Section>
       </Components.PageContent>
       <Components.Footer />

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://5-10km-hirel.fr/sitemap.xml
